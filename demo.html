@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cre8 Studio — TikTok Demo Integration</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 20px;
+        color: #333;
+        max-width: 600px;
+        margin: auto;
+    }
+    h1 {
+        text-align: center;
+        color: #000;
+    }
+    .section {
+        background: white;
+        padding: 18px;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    button {
+        background: #fe2c55;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 8px;
+    }
+    button:hover {
+        opacity: 0.9;
+    }
+    #logBox {
+        background: #000;
+        color: #0f0;
+        padding: 15px;
+        height: 180px;
+        overflow-y: auto;
+        font-family: monospace;
+        font-size: 13px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+    input[type="file"] {
+        margin-top: 10px;
+    }
+    .success {
+        color: green;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<h1>Cre8 Studio — TikTok API Demo</h1>
+
+<!-- 1. LOGIN SECTION -->
+<div class="section">
+    <h2>1. Login with TikTok</h2>
+    <p>This uses the real TikTok Login Kit. For the demo, no token is stored.</p>
+    <button onclick="startLogin()">Login with TikTok</button>
+
+    <p id="loginStatus" style="margin-top:10px;"></p>
+</div>
+
+<!-- 2. VIDEO UPLOAD SECTION -->
+<div class="section">
+    <h2>2. Select a Video</h2>
+    <p>Select any video file. This is just a UI simulation.</p>
+    <input type="file" id="videoFile" accept="video/*" />
+    <p id="fileStatus"></p>
+</div>
+
+<!-- 3. POST TO TIKTOK (DEMO) -->
+<div class="section">
+    <h2>3. Post to TikTok (Demo Mode)</h2>
+    <p>This simulates sending a video to TikTok using the Content Posting API.</p>
+    <button onclick="postToTikTok()">Send Video to TikTok (Demo)</button>
+
+    <div id="logBox"></div>
+</div>
+
+<script>
+// ---------------------------------------
+// 1. LOGIN SIMULATION (real OAuth link)
+// ---------------------------------------
+function startLogin() {
+    window.location.href =
+      "https://www.tiktok.com/auth/authorize/?client_key=awx012sitwelus6i&scope=user.info.basic&response_type=code&redirect_uri=https%3A%2F%2Fsirbm201.github.io%2FCre8-Policy%2Fdemo.html";
+}
+
+// Detect if login returned with ?code
+window.onload = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("code")) {
+        document.getElementById("loginStatus").innerHTML =
+            "<span class='success'>✔ TikTok Login Successful (Demo)</span>";
+    }
+};
+
+// ---------------------------------------
+// 2. Detect video selection
+// ---------------------------------------
+document.getElementById("videoFile").addEventListener("change", function () {
+    if (this.files.length > 0) {
+        document.getElementById("fileStatus").innerHTML =
+            "Selected: <strong>" + this.files[0].name + "</strong>";
+    }
+});
+
+// ---------------------------------------
+// 3. Simulated upload flow
+// ---------------------------------------
+function log(message) {
+    const box = document.getElementById("logBox");
+    box.innerHTML += message + "\n";
+    box.scrollTop = box.scrollHeight;
+}
+
+function postToTikTok() {
+    const file = document.getElementById("videoFile").files[0];
+    if (!file) {
+        alert("Please select a video file first.");
+        return;
+    }
+
+    log("Initializing TikTok upload...");
+    setTimeout(() => log("Uploading video..."), 1000);
+    setTimeout(() => log("Processing..."), 2000);
+
+    setTimeout(() => {
+        log("\n=== TikTok API Response (DEMO) ===");
+        log("{");
+        log('  "status": "success",');
+        log('  "video_id": "demo_' + Math.floor(Math.random()*999999) + '",');
+        log('  "message": "Video uploaded successfully in sandbox mode."');
+        log("}");
+        log("\n✔ DONE");
+    }, 3500);
+}
+</script>
+
+</body>
+</html>
