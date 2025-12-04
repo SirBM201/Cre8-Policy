@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cre8 Studio – Terms of Use</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0b1120;
+      color: #e5e7eb;
+    }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      color: #fbbf24;
+    }
+    p, li {
+      line-height: 1.6;
+      font-size: 0.95rem;
+      color: #d1d5db;
+    }
+    a {
+      color: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Terms of Use</h1>
+    <p>Last updated: December 4, 2025</p>
+
+    <h2>1. Overview</h2>
+    <p>
+      These Terms of Use (&quot;Terms&quot;) govern your access to and use of the Cre8 Studio
+      platform (&quot;Cre8 Studio&quot; or the &quot;Service&quot;), including any tools for AI
+      video generation, content transformation, and automated posting to platforms such as TikTok,
+      YouTube, Facebook, Instagram, and others.
+    </p>
+    <p>
+      By creating an account or using Cre8 Studio in any way, you agree to these Terms. If you do
+      not agree, you must not use the Service.
+    </p>
+
+    <h2>2. Who We Are</h2>
+    <p>
+      Cre8 Studio is operated by BMS Creative Concept (&quot;we&quot;, &quot;us&quot;, or
+      &quot;our&quot;). For contact details, see the &quot;Contact Us&quot; section at the end of
+      this document.
+    </p>
+
+    <h2>3. Eligibility</h2>
+    <p>You may use Cre8 Studio only if:</p>
+    <ul>
+      <li>You are at least 18 years old (or the age of legal majority in your region); and</li>
+      <li>You have the full power and authority to enter into these Terms; and</li>
+      <li>
+        Your use of the Service complies with all applicable laws and the terms of any social
+        platform you connect (for example TikTok's Terms of Service and Community Guidelines).
+      </li>
+    </ul>
+
+    <h2>4. Your Account & Security</h2>
+    <ul>
+      <li>You are responsible for maintaining the confidentiality of your login credentials.</li>
+      <li>
+        You are responsible for all activities that occur under your account, including content
+        posted to third-party platforms via Cre8 Studio.
+      </li>
+      <li>
+        You must notify us promptly if you suspect unauthorized access to your account or connected
+        platforms.
+      </li>
+    </ul>
+
+    <h2>5. Use of Cre8 Studio with TikTok & Other Platforms</h2>
+    <p>When you connect TikTok or any other platform to Cre8 Studio, you agree that:</p>
+    <ul>
+      <li>
+        You grant Cre8 Studio permission to publish content to that platform on your behalf strictly
+        within the scope that you configure (for example, specific posting slots or campaigns).
+      </li>
+      <li>
+        You remain fully responsible for the content, including ownership of rights and compliance
+        with each platform’s policies.
+      </li>
+      <li>
+        Cre8 Studio does not and will not artificially manipulate views, likes, follows, shares, or
+        any other engagement metrics.
+      </li>
+      <li>
+        Cre8 Studio may store limited tokens and configuration data needed to perform authorized
+        posting actions. This is described in our
+        <a href="/legal/privacy.html">Privacy Policy</a>.
+      </li>
+    </ul>
+
+    <h2>6. Content Ownership & Licenses</h2>
+    <p>
+      You retain all rights to the original content you upload or connect to Cre8 Studio, subject to
+      any licenses you grant us in this section.
+    </p>
+    <p>By using the Service, you confirm that:</p>
+    <ul>
+      <li>
+        You either own the content you provide or you have all necessary rights, licenses, and
+        permissions to use it and to authorize Cre8 Studio to process and post it.
+      </li>
+      <li>
+        You grant us a non-exclusive, worldwide, royalty-free license to host, store, process,
+        transform, and transmit your content solely for the purpose of operating the Service and
+        enabling features you choose (such as AI transformation, rebranding, scheduling, and
+        auto-posting).
+      </li>
+      <li>
+        You grant us the additional rights required by each connected platform to upload or publish
+        your content there, but we do not claim ownership of your content.
+      </li>
+    </ul>
+
+    <h2>7. AI Transformation & Fair Use</h2>
+    <p>
+      Cre8 Studio may provide tools that transform content using AI, including overlays, commentary,
+      review formats, reaction videos, or other creative modifications. You agree that:
+    </p>
+    <ul>
+      <li>
+        You are responsible for confirming that your use of source material (for example, movie
+        scenes or sports clips) is lawful in your region and complies with fair use or equivalent
+        legal doctrines where applicable.
+      </li>
+      <li>
+        You must follow all TikTok and other platform rules on copyrighted material, synthetic media,
+        and use of third-party likenesses.
+      </li>
+      <li>
+        We may provide guidance and warnings, but we do not provide legal advice, and you remain
+        responsible for your content choices.
+      </li>
+    </ul>
+
+    <h2>8. Prohibited Uses</h2>
+    <p>You must not use Cre8 Studio to:</p>
+    <ul>
+      <li>Violate any law or regulation in your jurisdiction.</li>
+      <li>
+        Violate any TikTok or third-party platform policies, including their community guidelines,
+        advertising rules, and monetization rules.
+      </li>
+      <li>
+        Post or promote hateful, violent, harassing, sexually explicit, or deceptive content, or any
+        content that targets protected groups.
+      </li>
+      <li>
+        Infringe or misappropriate any third-party rights, including copyrights, trademarks, or
+        rights of publicity.
+      </li>
+      <li>
+        Artificially inflate or manipulate views, likes, comments, follows, or other engagement
+        metrics.
+      </li>
+      <li>
+        Introduce malware, attempt to gain unauthorized access, or otherwise interfere with the
+        operation of Cre8 Studio or any connected platform.
+      </li>
+    </ul>
+
+    <h2>9. Monetization & Earnings</h2>
+    <p>
+      Cre8 Studio may include tools to help you qualify for monetization or track earnings from
+      third-party platforms. Unless otherwise stated in a separate written agreement:
+    </p>
+    <ul>
+      <li>
+        We are not responsible for decisions by TikTok or other platforms about your monetization
+        eligibility, revenue share, or account status.
+      </li>
+      <li>
+        You are responsible for reporting and paying any taxes associated with your earnings.
+      </li>
+      <li>
+        Any internal wallets, dashboards, or reporting tools in Cre8 Studio are provided for
+        convenience and may not be the official record of earnings from third-party platforms.
+      </li>
+    </ul>
+
+    <h2>10. Third-Party Services</h2>
+    <p>
+      Cre8 Studio integrates with services provided by third parties (for example, TikTok, YouTube,
+      Facebook, Instagram, and analytics or storage providers). We do not control these third
+      parties and are not responsible for their actions, terms, or privacy practices.
+    </p>
+
+    <h2>11. Data & Privacy</h2>
+    <p>
+      Our collection and use of personal data is described in the
+      <a href="/legal/privacy.html">Privacy Policy</a>. By using Cre8 Studio, you consent to the
+      collection and use of your information as described there.
+    </p>
+
+    <h2>12. Disclaimers</h2>
+    <p>
+      Cre8 Studio is provided on an &quot;as is&quot; and &quot;as available&quot; basis. To the
+      maximum extent permitted by law, we disclaim all warranties, whether express or implied,
+      including any implied warranties of merchantability, fitness for a particular purpose, and
+      non-infringement.
+    </p>
+    <p>
+      We do not guarantee any specific growth, monetization outcome, or platform approval (including
+      TikTok audits) from your use of the Service.
+    </p>
+
+    <h2>13. Limitation of Liability</h2>
+    <p>
+      To the maximum extent permitted by law, we are not liable for any indirect, incidental,
+      consequential, special, or punitive damages, or any loss of profits or revenues, whether
+      incurred directly or indirectly, arising from or in connection with your use of the Service.
+    </p>
+
+    <h2>14. Changes to the Service & Terms</h2>
+    <p>
+      We may update or modify the Service and these Terms from time to time. When we make material
+      changes, we will update the &quot;Last updated&quot; date and may provide additional notice
+      as appropriate. Continued use of the Service after changes means you accept the updated Terms.
+    </p>
+
+    <h2>15. Governing Law</h2>
+    <p>
+      These Terms are governed by the laws of [JURISDICTION – e.g., Alberta, Canada], without regard
+      to its conflict of laws principles. You agree to the exclusive jurisdiction of the courts in
+      that location, except where local law requires otherwise.
+    </p>
+
+    <h2>16. Contact Us</h2>
+    <p>
+      If you have questions about these Terms, please contact us at:
+      <br />
+      <strong>Email:</strong> bms.concept@hotmail.com
+    </p>
+  </div>
+</body>
+</html>
