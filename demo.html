@@ -16,369 +16,180 @@
 
     .page {
       max-width: 960px;
-      margin: 40px auto;
-      padding: 0 16px 40px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
     }
 
     h1 {
       font-size: 2rem;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.75rem;
     }
 
-    .subtitle {
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      color: #4b5563;
-      font-size: 0.95rem;
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 1.75rem;
+      margin-bottom: 0.5rem;
     }
 
-    /* ==== New Legal Section Styling ==== */
-    .legal-notice {
-      font-size: 0.85rem;
-      color: #4b5563;
-      margin-bottom: 14px;
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      padding: 10px 12px;
-      border-radius: 10px;
+    p {
+      line-height: 1.6;
+      margin: 0.4rem 0 0.6rem;
     }
 
-    .legal-notice a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
+    ul {
+      margin: 0.4rem 0 0.8rem 1.2rem;
+      padding-left: 1.2rem;
     }
 
-    .legal-notice a:hover {
-      text-decoration: underline;
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #e5f2ff;
+      color: #1f4b99;
+      margin-bottom: 1rem;
     }
-
-    .legal-footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #4b5563;
-      margin-top: 40px;
-    }
-
-    .legal-footer a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-      margin: 0 6px;
-    }
-
-    .legal-footer a:hover {
-      text-decoration: underline;
-    }
-    /* ============================= */
 
     .card {
       background: #ffffff;
       border-radius: 12px;
-      padding: 20px 20px 18px;
-      margin-bottom: 18px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
-      border: 1px solid #e5e7eb;
+      padding: 16px 18px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+      margin-top: 1rem;
     }
 
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    a {
+      color: #1d4ed8;
+      text-decoration: underline;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: #eef2ff;
-      color: #4f46e5;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    p {
-      margin-top: 4px;
-      margin-bottom: 10px;
+    .links {
+      margin-top: 1.5rem;
       font-size: 0.95rem;
-      line-height: 1.45;
     }
 
-    button.primary {
-      background: #ef4444;
-      border: none;
-      border-radius: 999px;
-      color: #ffffff;
-      padding: 9px 20px;
-      font-size: 0.95rem;
-      cursor: pointer;
-      font-weight: 600;
+    .links a {
+      margin-right: 12px;
     }
 
-    button.primary:hover {
-      background: #dc2626;
-    }
-
-    button.secondary {
-      background: #111827;
-      border: none;
-      border-radius: 999px;
-      color: #ffffff;
-      padding: 8px 18px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      font-weight: 500;
-    }
-
-    button.secondary:hover {
-      background: #020617;
-    }
-
-    .status {
-      font-size: 0.9rem;
-      color: #16a34a;
-      margin-top: 8px;
-    }
-
-    .note {
+    .muted {
       font-size: 0.85rem;
       color: #6b7280;
-      margin-top: 4px;
-    }
-
-    input[type="file"] {
-      margin: 6px 0 4px;
-      font-size: 0.9rem;
-    }
-
-    .help {
-      display: inline-block;
-      position: relative;
-      margin-top: 6px;
-      font-size: 0.85rem;
-      color: #2563eb;
-      cursor: help;
-    }
-
-    .help::before {
-      content: "ℹ";
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      border: 1px solid #2563eb;
-      margin-right: 4px;
-      font-size: 0.8rem;
-    }
-
-    .help-text {
-      position: absolute;
-      left: 0;
-      top: 120%;
-      z-index: 20;
-      min-width: 260px;
-      max-width: 420px;
-      background: #111827;
-      color: #f9fafb;
-      padding: 10px 12px;
-      border-radius: 10px;
-      font-size: 0.78rem;
-      line-height: 1.4;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.4);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(4px);
-      transition: opacity 0.15s ease-out, transform 0.15s ease-out,
-        visibility 0.15s;
-    }
-
-    .help:hover .help-text {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    #tiktok-tech-notes { font-size: 0.9rem; }
-    #tiktok-tech-notes pre {
-      background: #020617;
-      color: #e5e7eb;
-      padding: 10px 12px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 0.78rem;
-      line-height: 1.5;
-    }
-
-    #tiktok-tech-notes code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-    }
-
-    .footer-note {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin-top: 18px;
     }
   </style>
 </head>
 
 <body>
   <div class="page">
-    <h1>Cre8 Studio — TikTok API Demo</h1>
-    <p class="subtitle">
-      Demo for TikTok Login Kit + Content Posting API (Sandbox).
-      This page is used only for developer testing and app review.
+    <span class="badge">TikTok API Demo Information Page</span>
+
+    <h1>Cre8 Studio Posting Engine</h1>
+    <p class="muted">
+      This page explains how the Cre8 Studio Posting Engine interacts with TikTok when a
+      user authorizes our tool.
     </p>
 
-    <!-- ⭐ New Mandatory Legal Block -->
-    <div class="legal-notice">
-      By continuing, you acknowledge that you have read and agree to our
-      <a href="https://sirbm201.github.io/Cre8-Policy/terms.html" target="_blank">Terms of Service</a>
-      and
-      <a href="https://sirbm201.github.io/Cre8-Policy/privacy.html" target="_blank">Privacy Policy</a>.
+    <div class="card">
+      <h2>1. What this tool does</h2>
+      <p>
+        Cre8 Studio Posting Engine is a scheduling and publishing assistant for short-form
+        video content. After a creator connects their own TikTok account and grants
+        permission through the official TikTok OAuth flow, the tool can:
+      </p>
+      <ul>
+        <li>Upload videos that the creator has selected and provided to the tool</li>
+        <li>Attach captions, hashtags and basic metadata chosen by the creator</li>
+        <li>Schedule or immediately publish those videos to the creator’s TikTok account</li>
+        <li>Retrieve basic posting status (for example, whether an upload succeeded)</li>
+      </ul>
+      <p>
+        All actions are performed only after the user has explicitly granted permission
+        via TikTok’s official authorization screen.
+      </p>
     </div>
 
-    <!-- STEP 1: LOGIN WITH TIKTOK -->
-    <section class="card" id="step1">
-      <h2>
-        1. Login with TikTok
-        <span class="badge">Sandbox</span>
-      </h2>
-
+    <div class="card">
+      <h2>2. How TikTok data is used</h2>
       <p>
-        This button uses the official TikTok Login Kit authorize URL.
-        In sandbox, TikTok may currently show a generic error page after redirect.
+        When a user connects TikTok, the Service receives an access token and the minimum
+        account information required by the selected scope. This is used solely to:
       </p>
-
-      <button class="primary" id="loginBtn">Login with TikTok</button>
-
-      <p class="status">
-        ✔ TikTok Login URL is correctly configured with
-        <code>client_key</code>, <code>scope=user.info.basic</code> and the
-        verified redirect URI.
-      </p>
-
-      <div class="help">
-        Hover: Reviewer notes for Step 1
-        <div class="help-text">
-          <strong>Reviewer note:</strong><br />
-          When the user clicks <em>Login with TikTok</em>, we redirect to:
-          <code>https://www.tiktok.com/auth/authorize</code><br/><br/>
-          Required params included:<br/>
-          <code>client_key</code>, <code>scope</code>,
-          <code>response_type=code</code> and verified redirect URL.<br/><br/>
-          Sandbox error screens are normal during review testing.
-        </div>
-      </div>
-    </section>
-
-    <!-- STEP 2: SELECT A VIDEO -->
-    <section class="card" id="step2">
-      <h2>2. Select a Video</h2>
-      <p>This step simulates choosing a video to send to TikTok.</p>
-
-      <input type="file" id="videoInput" accept="video/*" />
-      <p class="note" id="videoName">No file chosen</p>
-
-      <div class="help">
-        Hover: Reviewer notes for Step 2
-        <div class="help-text">
-          Backend will upload selected file using
-          <code>video.upload</code> endpoint, paired with user's TikTok token.
-        </div>
-      </div>
-    </section>
-
-    <!-- STEP 3: POST TO TIKTOK -->
-    <section class="card" id="step3">
-      <h2>3. Post to TikTok (Demo Mode)</h2>
+      <ul>
+        <li>Authenticate the user with TikTok</li>
+        <li>Publish user-approved videos on their behalf</li>
+        <li>Read basic responses from TikTok about the upload (such as success or failure)</li>
+      </ul>
       <p>
-        This simulates calling the TikTok Content Posting API.
+        We do <strong>not</strong> use TikTok data for profiling, advertising, resale, or
+        sharing with third parties. We do <strong>not</strong> request or access data that
+        is unrelated to publishing content and checking posting status.
       </p>
-
-      <button class="secondary" id="postDemoBtn">Simulate Post to TikTok</button>
-
-      <p class="note">
-        In this sandbox demo, clicking does NOT contact TikTok.
-      </p>
-
-      <div class="help">
-        Hover: Reviewer notes for Step 3
-        <div class="help-text">
-          Real implementation:<br/>
-          1) Read stored TikTok access token<br/>
-          2) Upload via <code>video.upload</code><br/>
-          3) Optionally publish via <code>video.publish</code>.
-        </div>
-      </div>
-    </section>
-
-    <!-- TECH NOTES -->
-    <section class="card" id="tiktok-tech-notes">
-      <h2>Technical notes (for TikTok reviewers)</h2>
-      <pre><code>// Front-end → Backend → TikTok API</code></pre>
-      <p class="footer-note">
-        This demo is ONLY for TikTok review and testing.
-      </p>
-    </section>
-
-    <!-- ⭐ Footer Legal -->
-    <div class="legal-footer">
-      <a href="https://sirbm201.github.io/Cre8-Policy/terms.html" target="_blank">Terms of Service</a>
-      |
-      <a href="https://sirbm201.github.io/Cre8-Policy/privacy.html" target="_blank">Privacy Policy</a>
     </div>
+
+    <div class="card">
+      <h2>3. What we do not do</h2>
+      <ul>
+        <li>We do not scrape TikTok or collect data outside the official API.</li>
+        <li>We do not download or repost other users’ TikTok content without permission.</li>
+        <li>We do not sell, rent, or trade TikTok user data.</li>
+        <li>We do not perform hidden or background actions on a user’s account.</li>
+        <li>We do not bypass TikTok’s rules, limits, or community guidelines.</li>
+      </ul>
+      <p>
+        All usage is intended to remain fully compliant with TikTok’s Platform and
+        Developer Terms.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4. Security and data retention</h2>
+      <p>
+        Tokens and identifiers received from TikTok are stored only to the extent needed
+        to provide the Service functions described above. Access can be revoked at any time
+        by disconnecting Cre8 Studio from within TikTok or by contacting us.
+      </p>
+      <p>
+        We use HTTPS for all public pages, including this one, and follow standard
+        security practices appropriate for a small posting tool. Detailed information
+        can be found in our Privacy Policy and Platform Policy.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5. How to revoke access</h2>
+      <p>
+        A user can stop Cre8 Studio from accessing their TikTok account at any time by:
+      </p>
+      <ul>
+        <li>Removing the Cre8 Studio authorization from their TikTok account settings; or</li>
+        <li>Contacting us and requesting that we remove their tokens and disconnect access.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>6. Contact</h2>
+      <p>
+        Cre8 Studio Posting Engine is operated by <strong>BMS Creative Concept</strong>.
+        If you have any questions about how this tool interacts with TikTok or about how
+        your data is handled, you can contact us at:
+      </p>
+      <p>
+        <strong>bms.concept@hotmail.com</strong>
+      </p>
+    </div>
+
+    <div class="links">
+      <strong>Legal Documents</strong><br />
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/policy.html">Platform Policy</a>
+    </div>
+
+    <p class="muted" style="margin-top: 1.5rem;">
+      This page is provided to help TikTok reviewers and users understand what the
+      Cre8 Studio Posting Engine does and how it uses TikTok API permissions.
+    </p>
   </div>
-
-  <script>
-    // LOGIN
-    const loginBtn = document.getElementById("loginBtn");
-    if (loginBtn) {
-      loginBtn.addEventListener("click", function () {
-        const authorizeUrl =
-          "https://www.tiktok.com/auth/authorize/?" +
-          "client_key=sbawndwfausqcx3gz3" +
-          "&scope=user.info.basic" +
-          "&response_type=code" +
-          "&redirect_uri=" +
-          encodeURIComponent("https://sirbm201.github.io/Cre8-Policy/demo.html");
-
-        window.location.href = authorizeUrl;
-      });
-    }
-
-    // VIDEO PICKER
-    const videoInput = document.getElementById("videoInput");
-    const videoName = document.getElementById("videoName");
-    if (videoInput && videoName) {
-      videoInput.addEventListener("change", () => {
-        videoName.textContent =
-          videoInput.files && videoInput.files[0]
-            ? "Selected file: " + videoInput.files[0].name + " (demo only)"
-            : "No file chosen";
-      });
-    }
-
-    // DEMO POST BUTTON
-    const postDemoBtn = document.getElementById("postDemoBtn");
-    if (postDemoBtn) {
-      postDemoBtn.addEventListener("click", () => {
-        alert(
-          "Demo only:\n\n" +
-            "- Backend will:\n" +
-            "  1) Read TikTok access token\n" +
-            "  2) Upload video via video.upload\n" +
-            "  3) Publish via video.publish\n\n" +
-            "No real upload occurs in this review demo."
-        );
-      });
-    }
-  </script>
 </body>
 </html>
