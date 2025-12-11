@@ -1,79 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Cre8 Studio – AI Video Creation & Auto Publishing Platform</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cre8 Studio is an AI-powered video creation, branding, and auto-publishing platform for creators, businesses, and marketers.">
+  <meta charset="UTF-8" />
+  <title>Cre8 Studio – Smart Video Creation & Auto-Posting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Cre8 Studio is a creator tool that helps users create, schedule and publish videos to their own YouTube, Facebook, Instagram, TikTok and other accounts using official APIs and secure OAuth."
+  />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.15);
+      --accent-strong: rgba(56,189,248,0.3);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-soft: #1f2937;
+      --ok: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background:
+        radial-gradient(circle at top, #1e293b 0, #020617 55%),
+        #020617;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-soft);
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--accent);
+      background:
+        radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
+    }
+
+    .brand-title {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 1.02rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .layout-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero {
+      padding-right: 0.25rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.8rem 0.2rem 0.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(15,23,42,0.9);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
+    }
+
+    .eyebrow span strong {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(2.0rem, 3vw + 1.3rem, 2.6rem);
+      margin: 0 0 0.6rem;
+      letter-spacing: 0.01em;
+    }
+
+    .lead {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 38rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: rgba(15,23,42,0.85);
+    }
+
+    .pill strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      font-size: 0.88rem;
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      border: 1px solid transparent;
+      cursor: default; /* marketing-only, no click required for reviewers */
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      color: #0b1120;
+      box-shadow:
+        0 16px 40px rgba(56,189,248,0.35),
+        0 0 0 1px rgba(15,23,42,0.9);
+      font-weight: 600;
+    }
+
+    .btn-ghost {
+      background: rgba(15,23,42,0.9);
+      color: var(--text-main);
+      border-color: var(--border-soft);
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .section-title {
+      font-size: 0.98rem;
+      margin: 2rem 0 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      gap: 1.1rem;
+      margin-top: 0.6rem;
+    }
+
+    @media (max-width: 700px) {
+      .features-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    .feature-card {
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 60%);
+      padding: 0.85rem 0.9rem 0.95rem;
+      font-size: 0.9rem;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 0.1rem;
+      font-size: 0.95rem;
+    }
+
+    .feature-card p {
+      margin: 0.2rem 0;
+      color: var(--text-muted);
+    }
+
+    .feature-card ul {
+      margin: 0.2rem 0 0 1rem;
+      padding-left: 0.3rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* Right column info box */
+    .aside-card {
+      border-radius: 22px;
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 58%);
+      padding: 1.4rem 1.3rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .aside-card h2 {
+      font-size: 1rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .aside-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.12rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+      background: rgba(15,23,42,0.85);
+    }
+
+    .aside-tag span {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--ok);
+    }
+
+    .aside-list {
+      margin: 0.2rem 0 0.7rem 1.1rem;
+      padding-left: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .aside-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .aside-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.6rem;
+      margin-top: 0.6rem;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2.7rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--border-soft);
+      padding-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+  </style>
 </head>
-  <section id="tiktok-flow" style="padding:60px 20px; background:#020617; text-align:left; max-width:900px; margin:0 auto;">
-  <h2>How Cre8 Studio Works With TikTok</h2>
-  <ol style="font-size:18px; line-height:30px; margin-top:20px; padding-left:20px;">
-    <li><strong>Connect your TikTok account:</strong> You click “Connect TikTok” inside Cre8 Studio and are redirected to TikTok’s official authorization page.</li>
-    <li><strong>Grant permission:</strong> TikTok asks you to confirm that Cre8 Studio can upload videos and read basic account information for posting.</li>
-    <li><strong>Return to Cre8 Studio:</strong> After you approve, TikTok redirects you back to our callback page at
-      <code>https://thecre8studio.com/callback.html</code>.
-    </li>
-    <li><strong>Schedule & auto-post:</strong> You choose which videos to publish, set captions/hashtags, and Cre8 Studio sends them to TikTok using the official API.</li>
-    <li><strong>Full control:</strong> You can stop using Cre8 Studio at any time, and you can revoke access from your TikTok account settings.</li>
-  </ol>
-
-  <p style="font-size:16px; color:#cbd5f5; margin-top:25px;">
-    Cre8 Studio does not sell TikTok data. We only use the permissions shown on the TikTok consent screen to help you upload and manage your own content.
-    For more details, see our
-    <a href="https://thecre8studio.com/privacy.html" style="color:#60a5fa;">Privacy Policy</a>
-    and
-    <a href="https://thecre8studio.com/terms.html" style="color:#60a5fa;">Terms of Use</a>.
-  </p>
-</section>
-
-<body style="font-family: Arial, sans-serif; margin:0; padding:0; background:#0f172a; color:white;">
-
-  <section style="padding:60px 20px; text-align:center; background:#020617;">
-    <h1 style="font-size:42px;">Cre8 Studio</h1>
-    <p style="font-size:20px; max-width:800px; margin:20px auto;">
-      Cre8 Studio is an AI-powered video creation, branding, and auto-publishing platform designed for creators, businesses, and digital marketers. We help users generate videos, rebrand content, and automatically publish to platforms like TikTok, Facebook, Instagram, and YouTube.
-    </p>
-    <a href="#features" style="display:inline-block; margin-top:20px; padding:14px 28px; background:#2563eb; color:white; text-decoration:none; border-radius:6px;">Explore Features</a>
-  </section>
-
-  <section id="features" style="padding:60px 20px; background:#020617;">
-    <h2 style="text-align:center;">Platform Features</h2>
-    <ul style="max-width:700px; margin:40px auto; font-size:18px; line-height:32px;">
-      <li>AI video creation & editing</li>
-      <li>Smart video rebranding & overlays</li>
-      <li>Multi-platform auto-posting</li>
-      <li>Creator monetization tools</li>
-      <li>Auto scheduling & content automation</li>
-      <li>Wallet & payout tracking</li>
-    </ul>
-  </section>
-
-  <section style="padding:60px 20px; background:#020617; text-align:center;">
-    <h2>Who Cre8 Studio Is For</h2>
-    <p style="max-width:700px; margin:auto; font-size:18px;">
-      Cre8 Studio is built for content creators, influencers, digital marketers, online businesses, educators, and anyone who wants to grow and monetize video content at scale.
-    </p>
-  </section>
-
-  <section style="padding:60px 20px; background:#020617; text-align:center;">
-    <h2>Account Access</h2>
-    <p>Creators can register and manage their content directly from the platform.</p>
-    <p style="margin-top:10px;">Web App Access | Mobile App (Coming Soon)</p>
-  </section>
-
-  <footer style="padding:40px 20px; background:#020617; text-align:center; border-top:1px solid #1e293b;">
-    <p>© 2025 Cre8 Studio. All Rights Reserved.</p>
-
-    <div style="margin-top:20px;">
-      <a href="https://thecre8studio.com/terms.html" style="color:#60a5fa; margin-right:20px;">Terms of Service</a>
-      <a href="https://thecre8studio.com/privacy.html" style="color:#60a5fa;">Privacy Policy</a>
+<body>
+  <!-- Top navigation -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark">C8</div>
+        <div class="brand-title">Cre8 Studio</div>
+      </div>
+      <nav class="nav-links">
+        <a href="/index.html" class="active">Home</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/policy.html">Platform &amp; API Policy</a>
+      </nav>
     </div>
+  </header>
 
-    <p style="font-size:14px; color:#94a3b8; margin-top:20px;">
-      Cre8 Studio complies with all platform policies and content protection regulations.
-    </p>
+  <main>
+    <section class="layout-grid">
+      <!-- Left: main hero content -->
+      <div class="hero">
+        <div class="eyebrow">
+          <div class="eyebrow-dot"></div>
+          <span><strong>Cre8 Studio</strong> · Smart video creation &amp; auto-posting</span>
+        </div>
+
+        <h1>Create once. Publish everywhere.</h1>
+        <p class="lead">
+          Cre8 Studio is a creator tool that helps users create, schedule and publish videos
+          to their own channels on YouTube, Facebook, Instagram, TikTok and other platforms.
+          All connections are made through the platforms&rsquo; official APIs and secure OAuth
+          – no passwords are ever shared with us.
+        </p>
+
+        <div class="pill-row">
+          <div class="pill"><strong>YouTube:</strong> upload &amp; manage videos on your own channel</div>
+          <div class="pill"><strong>Meta:</strong> schedule posts to Facebook Pages &amp; Instagram</div>
+          <div class="pill"><strong>TikTok:</strong> short-form clips and re-posts (where available)</div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="btn-primary">Creator dashboard (coming soon)</div>
+          <div class="btn-ghost">Built for policy-compliant automations</div>
+        </div>
+
+        <p class="small-note">
+          Cre8 Studio never sells YouTube or social-platform data, and it does not use
+          API-returned data for advertising, social listening, or resale. All access is
+          limited to the features visible inside the user&rsquo;s dashboard.
+        </p>
+
+        <h2 class="section-title">What creators can do with Cre8 Studio</h2>
+        <div class="features-grid">
+          <article class="feature-card">
+            <h3>1. Connect your own accounts</h3>
+            <p>
+              Creators connect their YouTube, Facebook, Instagram and other accounts
+              directly through each platform&rsquo;s OAuth or app-linking flow.
+            </p>
+            <ul>
+              <li>No passwords are collected by Cre8 Studio.</li>
+              <li>Creators can revoke access at any time from their platform settings.</li>
+              <li>Only the minimum scopes needed for uploads and basic analytics are requested.</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>2. Upload &amp; schedule videos</h3>
+            <p>
+              Once connected, users can upload ready-made videos or use AI-assisted
+              templates to generate short clips and longer episodes.
+            </p>
+            <ul>
+              <li>Publish directly to the creator&rsquo;s own channel or page.</li>
+              <li>Edit titles, descriptions, tags and thumbnails before posting.</li>
+              <li>Schedule posts to go live at optimal times.</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>3. Multi-platform automation</h3>
+            <p>
+              Creators can send the same video to several platforms at once.
+              For each destination, Cre8 Studio uses that platform&rsquo;s official API.
+            </p>
+            <ul>
+              <li>Per-platform formatting (aspect ratio, captions, hashtags).</li>
+              <li>Respect for each platform&rsquo;s rate limits and quota rules.</li>
+              <li>Automatic error reporting in the dashboard if a post fails.</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>4. Performance overview only</h3>
+            <p>
+              For YouTube and other platforms, Cre8 Studio can display high-level
+              performance metrics to the creator.
+            </p>
+            <ul>
+              <li>Examples: views, likes, watch time, impressions.</li>
+              <li>Data is shown only to the owner of the connected account.</li>
+              <li>No public reports, resale or third-party analytics are generated.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <!-- Right: clear API / reviewer explanation box -->
+      <aside class="aside-card">
+        <div class="aside-tag">
+          <span></span>
+          <div>Information for YouTube &amp; platform reviewers</div>
+        </div>
+        <h2>How Cre8 Studio uses platform APIs</h2>
+        <p>
+          Cre8 Studio acts purely as a creator productivity tool. It does not provide
+          social listening, competitive intelligence or audience-surveillance features.
+        </p>
+        <ul class="aside-list">
+          <li><strong>Authentication:</strong> Users sign in with OAuth for each platform. Tokens are stored securely and are only used to perform user-initiated or user-configured actions.</li>
+          <li><strong>YouTube Data:</strong> Used only to upload and manage the user&rsquo;s own videos and to show simple performance dashboards. No data is sold, shared or combined with external datasets.</li>
+          <li><strong>Other Platforms:</strong> Facebook, Instagram, TikTok and others are used in a similar way – strictly for posting and basic performance views for the account owner.</li>
+          <li><strong>Revocation:</strong> Users can disconnect any integration from the Cre8 Studio dashboard or directly via the platform (for YouTube, at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">https://myaccount.google.com/permissions</a>).</li>
+        </ul>
+        <p class="aside-note">
+          Full details are provided in the dedicated policy pages:
+          <br />
+          – <a href="/terms.html">Terms of Use</a><br />
+          – <a href="/privacy.html">Privacy Policy</a><br />
+          – <a href="/policy.html">Platform &amp; API Use Policy</a>
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year">2025</span> BMS Creative Concept · Cre8 Studio</div>
+      <div class="footer-links">
+        <a href="/terms.html">Terms of Use</a>
+        <span>·</span>
+        <a href="/privacy.html">Privacy Policy</a>
+        <span>·</span>
+        <a href="/policy.html">Platform &amp; API Policy</a>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    // Simple helper so the year stays current without affecting reviewers
+    (function () {
+      var el = document.getElementById("year");
+      if (el) el.textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
