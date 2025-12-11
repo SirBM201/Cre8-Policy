@@ -4,251 +4,502 @@
   <meta charset="UTF-8" />
   <title>Cre8 Studio – Terms of Use</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Terms of Use for Cre8 Studio, a video automation and publishing platform that connects to YouTube, Facebook, Instagram, TikTok and other social platforms." />
+
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0b1120;
-      color: #e5e7eb;
+    :root {
+      --bg: #0f172a;
+      --bg-card: #0b1120;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-soft: #1f2937;
+      --danger: #f97373;
     }
-    .page {
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-soft);
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
       max-width: 960px;
       margin: 0 auto;
-      padding: 32px 16px 64px;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--accent);
+      background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
+    }
+
+    .brand-title {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.98rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.96), rgba(15,23,42,0.98));
+      border-radius: 24px;
+      border: 1px solid var(--border-soft);
+      box-shadow:
+        0 22px 45px rgba(0,0,0,0.65),
+        0 0 0 1px rgba(148,163,184,0.10);
+      padding: 2.2rem 1.8rem 2.4rem;
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 2.8rem 3rem 3rem;
+      }
+    }
+
     h1 {
-      font-size: 2rem;
-      margin-bottom: 8px;
+      font-size: 1.9rem;
+      margin: 0 0 0.4rem;
     }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 0.75rem 0.9rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.25), transparent 55%);
+      border: 1px solid var(--accent-soft);
+      margin-bottom: 2rem;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
+    }
+
     h2 {
-      font-size: 1.25rem;
-      margin-top: 24px;
-      margin-bottom: 8px;
-      color: #fbbf24;
+      font-size: 1.1rem;
+      margin-top: 1.9rem;
+      margin-bottom: 0.4rem;
     }
-    p, li {
-      line-height: 1.6;
+
+    h3 {
+      font-size: 0.98rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    p {
       font-size: 0.95rem;
-      color: #d1d5db;
+      margin: 0.35rem 0 0.2rem;
     }
-    a {
-      color: #38bdf8;
+
+    ul {
+      margin: 0.35rem 0 0.6rem 1.1rem;
+      padding-left: 0.4rem;
+      font-size: 0.94rem;
+    }
+
+    li {
+      margin-bottom: 0.15rem;
+    }
+
+    .note {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.7rem;
+      margin-top: 0.6rem;
+    }
+
+    .warning {
+      color: var(--danger);
+      font-weight: 500;
+    }
+
+    footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--border-soft);
+      padding-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <h1>Terms of Use</h1>
-    <p>Last updated: December 4, 2025</p>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark">C8</div>
+        <div class="brand-title">Cre8 Studio</div>
+      </div>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/terms.html" class="active">Terms of Use</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/policy.html">Platform &amp; API Policy</a>
+      </nav>
+    </div>
+  </header>
 
-    <h2>1. Overview</h2>
-    <p>
-      These Terms of Use (&quot;Terms&quot;) govern your access to and use of the Cre8 Studio
-      platform (&quot;Cre8 Studio&quot; or the &quot;Service&quot;), including any tools for AI
-      video generation, content transformation, and automated posting to platforms such as TikTok,
-      YouTube, Facebook, Instagram, and others.
-    </p>
-    <p>
-      By creating an account or using Cre8 Studio in any way, you agree to these Terms. If you do
-      not agree, you must not use the Service.
-    </p>
+  <main>
+    <article class="card">
+      <header>
+        <h1>Terms of Use</h1>
+        <p class="subtitle">
+          These Terms govern your use of Cre8 Studio and its integrations with YouTube,
+          Facebook, Instagram, TikTok, and other supported platforms.
+        </p>
+        <div class="meta-bar">
+          <span class="meta-pill">
+            <span class="dot"></span>
+            <span>Effective date: 11 December 2025</span>
+          </span>
+          <span class="meta-pill">
+            <span>Operator: BMS Creative Concept (&ldquo;we&rdquo;, &ldquo;us&rdquo;)</span>
+          </span>
+        </div>
+      </header>
 
-    <h2>2. Who We Are</h2>
-    <p>
-      Cre8 Studio is operated by BMS Creative Concept (&quot;we&quot;, &quot;us&quot;, or
-      &quot;our&quot;). For contact details, see the &quot;Contact Us&quot; section at the end of
-      this document.
-    </p>
+      <section>
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+          By accessing or using Cre8 Studio (the &ldquo;Service&rdquo;), you agree to be bound by
+          these Terms of Use (&ldquo;Terms&rdquo;). If you do not agree, you must not use the Service.
+        </p>
+        <p>
+          You also agree to comply with the terms, policies, and community guidelines of each
+          platform you connect to the Service, including:
+        </p>
+        <ul>
+          <li><a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service</a></li>
+          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+          <li><a href="https://developers.google.com/youtube/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a></li>
+          <li><a href="https://www.facebook.com/legal/terms" target="_blank" rel="noopener noreferrer">Meta (Facebook &amp; Instagram) Terms</a></li>
+          <li><a href="https://www.tiktok.com/legal/terms-of-service" target="_blank" rel="noopener noreferrer">TikTok Terms of Service</a></li>
+        </ul>
+        <p class="note">
+          In the event of any conflict between these Terms and the policies of YouTube or other
+          platforms, the platform policies will prevail for any use of their services.
+        </p>
+      </section>
 
-    <h2>3. Eligibility</h2>
-    <p>You may use Cre8 Studio only if:</p>
-    <ul>
-      <li>You are at least 18 years old (or the age of legal majority in your region); and</li>
-      <li>You have the full power and authority to enter into these Terms; and</li>
-      <li>
-        Your use of the Service complies with all applicable laws and the terms of any social
-        platform you connect (for example TikTok's Terms of Service and Community Guidelines).
-      </li>
-    </ul>
+      <section>
+        <h2>2. Description of the Service</h2>
+        <p>
+          Cre8 Studio is an online video creation and automation tool that helps users create,
+          schedule, and publish videos and related content to their own social media accounts.
+          Core features may include:
+        </p>
+        <ul>
+          <li>Uploading and publishing videos to the user&rsquo;s own YouTube channel.</li>
+          <li>Publishing content to Facebook Pages, Instagram accounts, TikTok accounts, and other supported platforms.</li>
+          <li>Content automation tools such as templates, captions, thumbnails, and scheduling.</li>
+          <li>Optional analytics and performance summaries based on each platform&rsquo;s allowed data.</li>
+        </ul>
+        <p>
+          The Service does <strong>not</strong> sell, rent, or resell YouTube or other platform data.
+          Data is used only to provide the features explicitly requested by the user.
+        </p>
+      </section>
 
-    <h2>4. Your Account & Security</h2>
-    <ul>
-      <li>You are responsible for maintaining the confidentiality of your login credentials.</li>
-      <li>
-        You are responsible for all activities that occur under your account, including content
-        posted to third-party platforms via Cre8 Studio.
-      </li>
-      <li>
-        You must notify us promptly if you suspect unauthorized access to your account or connected
-        platforms.
-      </li>
-    </ul>
+      <section>
+        <h2>3. Eligibility and Accounts</h2>
+        <ul>
+          <li>You must be at least 18 years old, or the age of majority in your jurisdiction, to use the Service.</li>
+          <li>You are responsible for maintaining the security of your Cre8 Studio account, including any login credentials.</li>
+          <li>You must provide accurate information and keep it up to date.</li>
+        </ul>
+      </section>
 
-    <h2>5. Use of Cre8 Studio with TikTok & Other Platforms</h2>
-    <p>When you connect TikTok or any other platform to Cre8 Studio, you agree that:</p>
-    <ul>
-      <li>
-        You grant Cre8 Studio permission to publish content to that platform on your behalf strictly
-        within the scope that you configure (for example, specific posting slots or campaigns).
-      </li>
-      <li>
-        You remain fully responsible for the content, including ownership of rights and compliance
-        with each platform’s policies.
-      </li>
-      <li>
-        Cre8 Studio does not and will not artificially manipulate views, likes, follows, shares, or
-        any other engagement metrics.
-      </li>
-      <li>
-        Cre8 Studio may store limited tokens and configuration data needed to perform authorized
-        posting actions. This is described in our
-        <a href="/legal/privacy.html">Privacy Policy</a>.
-      </li>
-    </ul>
+      <section>
+        <h2>4. Connecting Your YouTube and Other Accounts</h2>
+        <p>
+          To publish content, you may connect your YouTube channel and other social accounts using
+          each provider&rsquo;s official authentication flow (for example, Google OAuth 2.0).
+        </p>
+        <ul>
+          <li>We never ask for or store your Google, Facebook, Instagram, or TikTok passwords.</li>
+          <li>
+            We receive access tokens and, where necessary, refresh tokens from the provider to
+            perform actions you have approved (for example, uploading a video to your channel).
+          </li>
+          <li>
+            You may revoke Cre8 Studio&rsquo;s access at any time in your account settings on the
+            relevant platform (for example, in your
+            <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google Account Permissions</a>).
+          </li>
+        </ul>
+        <p>
+          When you revoke access, we will stop using those tokens and will delete or anonymise them
+          from our systems within a reasonable period, as further described in our
+          <a href="/privacy.html">Privacy Policy</a>.
+        </p>
+      </section>
 
-    <h2>6. Content Ownership & Licenses</h2>
-    <p>
-      You retain all rights to the original content you upload or connect to Cre8 Studio, subject to
-      any licenses you grant us in this section.
-    </p>
-    <p>By using the Service, you confirm that:</p>
-    <ul>
-      <li>
-        You either own the content you provide or you have all necessary rights, licenses, and
-        permissions to use it and to authorize Cre8 Studio to process and post it.
-      </li>
-      <li>
-        You grant us a non-exclusive, worldwide, royalty-free license to host, store, process,
-        transform, and transmit your content solely for the purpose of operating the Service and
-        enabling features you choose (such as AI transformation, rebranding, scheduling, and
-        auto-posting).
-      </li>
-      <li>
-        You grant us the additional rights required by each connected platform to upload or publish
-        your content there, but we do not claim ownership of your content.
-      </li>
-    </ul>
+      <section>
+        <h2>5. Use of YouTube API Services and Platform Data</h2>
+        <p>
+          When you connect your YouTube channel, Cre8 Studio may access and use YouTube data only
+          as permitted by you and by YouTube&rsquo;s policies. Typical uses include:
+        </p>
+        <ul>
+          <li>Retrieving basic channel information to display in your dashboard.</li>
+          <li>Uploading videos, setting titles, descriptions, tags, thumbnails and privacy settings on your behalf.</li>
+          <li>Optionally reading performance metrics (such as views and watch time) to display reports to you.</li>
+        </ul>
+        <p class="warning">
+          We do not use YouTube data to build separate profiles on users, and we do not share or sell
+          YouTube data to third parties for advertising or other independent purposes.
+        </p>
+        <p>
+          Any derived metrics or summaries we show you are for your own use within Cre8 Studio and
+          are not sold as a separate analytics product.
+        </p>
+      </section>
 
-    <h2>7. AI Transformation & Fair Use</h2>
-    <p>
-      Cre8 Studio may provide tools that transform content using AI, including overlays, commentary,
-      review formats, reaction videos, or other creative modifications. You agree that:
-    </p>
-    <ul>
-      <li>
-        You are responsible for confirming that your use of source material (for example, movie
-        scenes or sports clips) is lawful in your region and complies with fair use or equivalent
-        legal doctrines where applicable.
-      </li>
-      <li>
-        You must follow all TikTok and other platform rules on copyrighted material, synthetic media,
-        and use of third-party likenesses.
-      </li>
-      <li>
-        We may provide guidance and warnings, but we do not provide legal advice, and you remain
-        responsible for your content choices.
-      </li>
-    </ul>
+      <section>
+        <h2>6. User Content and Responsibility</h2>
+        <ul>
+          <li>You retain all rights in the content you upload or generate through the Service.</li>
+          <li>You grant us a limited, non-exclusive, revocable licence to process and transmit your content solely to operate the Service and publish it to your chosen platforms.</li>
+          <li>You are responsible for ensuring that your content complies with all applicable laws and the policies of each platform (for example, copyright and community guidelines).</li>
+          <li>If a platform requests removal of content or suspends access due to policy violations, we may be required to remove or disable related features inside Cre8 Studio.</li>
+        </ul>
+      </section>
 
-    <h2>8. Prohibited Uses</h2>
-    <p>You must not use Cre8 Studio to:</p>
-    <ul>
-      <li>Violate any law or regulation in your jurisdiction.</li>
-      <li>
-        Violate any TikTok or third-party platform policies, including their community guidelines,
-        advertising rules, and monetization rules.
-      </li>
-      <li>
-        Post or promote hateful, violent, harassing, sexually explicit, or deceptive content, or any
-        content that targets protected groups.
-      </li>
-      <li>
-        Infringe or misappropriate any third-party rights, including copyrights, trademarks, or
-        rights of publicity.
-      </li>
-      <li>
-        Artificially inflate or manipulate views, likes, comments, follows, or other engagement
-        metrics.
-      </li>
-      <li>
-        Introduce malware, attempt to gain unauthorized access, or otherwise interfere with the
-        operation of Cre8 Studio or any connected platform.
-      </li>
-    </ul>
+      <section>
+        <h2>7. Prohibited Uses</h2>
+        <p>You agree not to use the Service to:</p>
+        <ul>
+          <li>Scrape, export, or store large volumes of YouTube or other platform data outside what is necessary for normal use of the Service.</li>
+          <li>Sell or resell access to YouTube or other platform data obtained via the Service.</li>
+          <li>Manipulate metrics (for example, artificially inflating views, likes, or subscribers).</li>
+          <li>Upload spam, misleading, harmful, or illegal content.</li>
+          <li>Attempt to bypass or interfere with platform security or rate-limiting controls.</li>
+        </ul>
+        <p>
+          We may suspend or terminate your access if we reasonably believe you are misusing the
+          Service or causing us to violate any platform policy.
+        </p>
+      </section>
 
-    <h2>9. Monetization & Earnings</h2>
-    <p>
-      Cre8 Studio may include tools to help you qualify for monetization or track earnings from
-      third-party platforms. Unless otherwise stated in a separate written agreement:
-    </p>
-    <ul>
-      <li>
-        We are not responsible for decisions by TikTok or other platforms about your monetization
-        eligibility, revenue share, or account status.
-      </li>
-      <li>
-        You are responsible for reporting and paying any taxes associated with your earnings.
-      </li>
-      <li>
-        Any internal wallets, dashboards, or reporting tools in Cre8 Studio are provided for
-        convenience and may not be the official record of earnings from third-party platforms.
-      </li>
-    </ul>
+      <section>
+        <h2>8. Payments and Subscriptions</h2>
+        <p>
+          Some features of Cre8 Studio may be offered on a paid subscription or usage-based model.
+          Pricing, billing cycles, and refund information will be presented clearly at the point of
+          purchase or in your account dashboard.
+        </p>
+        <p>
+          Unless otherwise stated, fees are non-refundable except where required by law.
+        </p>
+      </section>
 
-    <h2>10. Third-Party Services</h2>
-    <p>
-      Cre8 Studio integrates with services provided by third parties (for example, TikTok, YouTube,
-      Facebook, Instagram, and analytics or storage providers). We do not control these third
-      parties and are not responsible for their actions, terms, or privacy practices.
-    </p>
+      <section>
+        <h2>9. Third-Party Services and Links</h2>
+        <p>
+          The Service relies on third-party platforms and APIs, including but not limited to
+          YouTube, Google, Meta (Facebook &amp; Instagram), TikTok and others. We do not control
+          these services and are not responsible for their availability or performance.
+        </p>
+        <p>
+          Your use of those third-party services is governed by their own terms and policies. It is
+          your responsibility to review them.
+        </p>
+      </section>
 
-    <h2>11. Data & Privacy</h2>
-    <p>
-      Our collection and use of personal data is described in the
-      <a href="/legal/privacy.html">Privacy Policy</a>. By using Cre8 Studio, you consent to the
-      collection and use of your information as described there.
-    </p>
+      <section>
+        <h2>10. Data Protection and Security</h2>
+        <p>
+          We take reasonable technical and organisational measures to protect your data against
+          unauthorised access, loss, or misuse. However, no system is completely secure.
+        </p>
+        <p>
+          Further details on what data we collect, how we use it, and your choices are described in
+          our <a href="/privacy.html">Privacy Policy</a>.
+        </p>
+      </section>
 
-    <h2>12. Disclaimers</h2>
-    <p>
-      Cre8 Studio is provided on an &quot;as is&quot; and &quot;as available&quot; basis. To the
-      maximum extent permitted by law, we disclaim all warranties, whether express or implied,
-      including any implied warranties of merchantability, fitness for a particular purpose, and
-      non-infringement.
-    </p>
-    <p>
-      We do not guarantee any specific growth, monetization outcome, or platform approval (including
-      TikTok audits) from your use of the Service.
-    </p>
+      <section>
+        <h2>11. Suspension and Termination</h2>
+        <p>
+          We may suspend or terminate your access to the Service, with or without notice, if we
+          reasonably believe that:
+        </p>
+        <ul>
+          <li>You have violated these Terms or any applicable law.</li>
+          <li>Your use causes risk or harm to us, to other users, or to any integrated platform.</li>
+          <li>We are required to do so by a platform provider (for example, YouTube) or by law.</li>
+        </ul>
+        <p>
+          You may stop using the Service at any time and may disconnect your social accounts through
+          the Service or directly on each platform.
+        </p>
+      </section>
 
-    <h2>13. Limitation of Liability</h2>
-    <p>
-      To the maximum extent permitted by law, we are not liable for any indirect, incidental,
-      consequential, special, or punitive damages, or any loss of profits or revenues, whether
-      incurred directly or indirectly, arising from or in connection with your use of the Service.
-    </p>
+      <section>
+        <h2>12. Disclaimers</h2>
+        <p>
+          The Service is provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis. To
+          the maximum extent permitted by law, we disclaim all warranties, whether express or
+          implied, including any implied warranties of merchantability, fitness for a particular
+          purpose, and non-infringement.
+        </p>
+        <p>
+          We do not guarantee uninterrupted operation of the Service or that every upload or
+          integration will succeed on every attempt, as this depends in part on third-party
+          platforms and network conditions.
+        </p>
+      </section>
 
-    <h2>14. Changes to the Service & Terms</h2>
-    <p>
-      We may update or modify the Service and these Terms from time to time. When we make material
-      changes, we will update the &quot;Last updated&quot; date and may provide additional notice
-      as appropriate. Continued use of the Service after changes means you accept the updated Terms.
-    </p>
+      <section>
+        <h2>13. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by law, we shall not be liable for any indirect,
+          incidental, consequential, or special damages, or any loss of profits, revenues, data, or
+          goodwill arising out of or related to your use of the Service.
+        </p>
+        <p>
+          Our total aggregate liability for any claims relating to the Service will not exceed the
+          amount you paid to use the Service in the six (6) months preceding the event giving rise
+          to the claim, or, if you use the Service for free, one hundred US dollars (USD&nbsp;100).
+        </p>
+      </section>
 
-    <h2>15. Governing Law</h2>
-    <p>
-      These Terms are governed by the laws of [JURISDICTION – e.g., Alberta, Canada], without regard
-      to its conflict of laws principles. You agree to the exclusive jurisdiction of the courts in
-      that location, except where local law requires otherwise.
-    </p>
+      <section>
+        <h2>14. Changes to the Service and to these Terms</h2>
+        <p>
+          We may update or modify the Service over time, including adding or removing features.
+          Likewise, we may update these Terms when necessary.
+        </p>
+        <p>
+          When we make material changes, we will update the &ldquo;Effective date&rdquo; above and,
+          where appropriate, provide additional notice (for example, in-app or by email). Your
+          continued use of the Service after the updated Terms take effect constitutes acceptance of
+          the changes.
+        </p>
+      </section>
 
-    <h2>16. Contact Us</h2>
-    <p>
-      If you have questions about these Terms, please contact us at:
-      <br />
-      <strong>Email:</strong> bms.concept@hotmail.com
-    </p>
-  </div>
+      <section>
+        <h2>15. Contact</h2>
+        <p>
+          If you have any questions about these Terms or about Cre8 Studio, you can contact us at:
+        </p>
+        <p><strong>Email:</strong> sirbmsuper201@gmail.com</p>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>Last updated: 11 December 2025</div>
+      <div class="footer-links">
+        <a href="/terms.html">Terms of Use</a>
+        <span>·</span>
+        <a href="/privacy.html">Privacy Policy</a>
+        <span>·</span>
+        <a href="/policy.html">Platform &amp; API Use Policy</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
