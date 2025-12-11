@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cre8 Studio – YouTube API Client Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: #020617;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --border: #1f2933;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --danger: #f97373;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 60%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 16px 80px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--accent);
+      font-size: 12px;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+    }
+
+    .badge span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+    }
+
+    header {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    header h1 {
+      font-size: 30px;
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    header p {
+      color: var(--muted);
+      max-width: 720px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .updated {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #111827, #020617 60%);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 60%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .step-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: var(--muted);
+    }
+
+    .pseudo-ui {
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 14px 14px 11px;
+      background: linear-gradient(145deg, #020617, #020617 55%, #020817);
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pseudo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .pseudo-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .status-chip {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.18);
+      color: var(--accent);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+    }
+
+    .line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    .line span.label {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .btn-row {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-size: 12px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: none;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      color: #020617;
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.6),
+        0 12px 30px rgba(34, 197, 94, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--muted);
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.45);
+    }
+
+    .btn span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #020617;
+    }
+
+    .explain {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .explain strong {
+      color: var(--accent);
+    }
+
+    ul {
+      list-style: disc;
+      margin-left: 16px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Tooltip system */
+    .tooltip {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--muted);
+      font-size: 11px;
+      margin-left: 6px;
+      cursor: help;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 8px);
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.98);
+      color: #e5e7eb;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      line-height: 1.5;
+      width: 260px;
+      max-width: 80vw;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.16s ease-out, transform 0.16s ease-out;
+      transform-origin: bottom center;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      z-index: 50;
+      white-space: normal;
+    }
+
+    .tooltip::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent rgba(15, 23, 42, 0.98) transparent;
+      opacity: 0;
+      transition: opacity 0.16s ease-out;
+      z-index: 49;
+    }
+
+    .tooltip:hover::after,
+    .tooltip:hover::before {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
+    }
+
+    .monospace {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 11px;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="badge">
+      <span></span>
+      Cre8 Studio – YouTube API Client Demo
+    </div>
+
+    <header>
+      <h1>How Cre8 Studio uses the YouTube API</h1>
+      <p>
+        This interactive page explains exactly how Cre8 Studio connects to YouTube
+        using Google OAuth, how video uploads are triggered,
+        and how we protect YouTube user data. Use this page to record your
+        audit screenshots: hover over the <strong>“i”</strong> icons to see detailed
+        notes for reviewers.
+      </p>
+      <p class="updated">Updated: 11 December 2025</p>
+    </header>
+
+    <!-- ROW 1 – USER FLOW OVERVIEW -->
+    <div class="grid">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="step-label">Step 1 · User connects their own channel</div>
+            <div class="card-title">
+              Dashboard – “Connect YouTube”
+              <span
+                class="tooltip"
+                data-tooltip="Creators must be logged into their Cre8 Studio account first. From here, they start the official Google OAuth flow to connect ONLY their own YouTube channel. Cre8 Studio never collects passwords; all authentication happens on Google’s domain.">
+                i
+              </span>
+            </div>
+            <div class="card-subtitle">
+              User-initiated connection via Google OAuth 2.0
+            </div>
+          </div>
+          <div class="pill">For screenshot: <strong>Dashboard</strong></div>
+        </div>
+
+        <div class="pseudo-ui">
+          <div class="pseudo-header">
+            <div class="pseudo-title">Cre8 Studio · Channel Connections</div>
+            <span class="status-chip">
+              Not connected
+            </span>
+          </div>
+          <div class="line">
+            <span class="label">Platform</span>
+            <span>YouTube</span>
+          </div>
+          <div class="line">
+            <span class="label">Scopes requested</span>
+            <span class="monospace">
+              youtube.readonly, youtube.upload
+            </span>
+          </div>
+          <div class="btn-row">
+            <button class="btn">
+              <span class="dot"></span>
+              Connect YouTube (Google OAuth)
+            </button>
+            <button class="btn-secondary">
+              View scopes &amp; permissions
+              <span
+                class="tooltip"
+                data-tooltip="The only scopes used are: youtube.readonly (basic channel & video status) and youtube.upload (upload video files to the user’s own channel). No analytics, reporting, Content ID or advertising scopes are requested.">
+                i
+              </span>
+            </button>
+          </div>
+          <p class="explain">
+            When the creator clicks <strong>Connect YouTube</strong>, we redirect them to
+            <span class="monospace">https://accounts.google.com/o/oauth2/v2/auth</span>.
+            All consent screens, passwords, and 2FA steps are handled by Google.
+          </p>
+        </div>
+
+        <ul>
+          <li>Cre8 Studio <strong>does not</strong> create channels or modify existing videos.</li>
+          <li>Each connection is tied to a single Cre8 Studio user account (creator-controlled).</li>
+          <li>Tokens are stored securely on the server and can be revoked at any time.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="step-label">Step 2 · Google consent experience</div>
+            <div class="card-title">
+              Google OAuth consent screen
+              <span
+                class="tooltip"
+                data-tooltip="This portion of the flow is fully hosted by Google. Here, users can review our app name, the exact scopes requested, and either allow or deny access. They can revoke this access later from their Google Account settings.">
+                i
+              </span>
+            </div>
+            <div class="card-subtitle">
+              Standard Google screen – no custom UI or password handling
+            </div>
+          </div>
+          <div class="pill">For screenshot: <strong>Google consent</strong></div>
+        </div>
+
+        <div class="pseudo-ui">
+          <div class="pseudo-header">
+            <div class="pseudo-title">Google – “Cre8 Studio YouTube Auto Poster”</div>
+            <span class="status-chip">Preview</span>
+          </div>
+          <div class="line">
+            <span>Allow <strong>Cre8 Studio YouTube Auto Poster</strong> to:</span>
+          </div>
+          <ul>
+            <li>View your YouTube account (channel and basic settings).</li>
+            <li>Manage your YouTube videos (upload new videos to your channel).</li>
+          </ul>
+          <div class="btn-row">
+            <button class="btn-secondary">Cancel</button>
+            <button class="btn">Allow</button>
+          </div>
+          <p class="explain">
+            Once the user clicks <strong>Allow</strong>, Google issues an authorization code which
+            our backend exchanges for tokens using
+            <span class="monospace">oauth2/v4/token</span>. Tokens are stored encrypted and are
+            used only to perform the user-initiated actions described on this page.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ROW 2 – UPLOAD WORKFLOW -->
+    <div class="grid">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="step-label">Step 3 · Creator configures an upload</div>
+            <div class="card-title">
+              Upload configuration in Cre8 Studio
+              <span
+                class="tooltip"
+                data-tooltip="Creators choose the exact file and metadata. Cre8 Studio does not publish anything without an explicit action (clicking Upload or scheduling a post) from the authenticated user.">
+                i
+              </span>
+            </div>
+            <div class="card-subtitle">
+              User-selected file + metadata → YouTube Data API
+            </div>
+          </div>
+          <div class="pill">For screenshot: <strong>Upload form</strong></div>
+        </div>
+
+        <div class="pseudo-ui">
+          <div class="pseudo-header">
+            <div class="pseudo-title">New YouTube Upload (via Cre8 Studio)</div>
+            <span class="status-chip">Connected as: Sir BM</span>
+          </div>
+          <div class="line">
+            <span class="label">Video file</span>
+            <span>The Royal Accident – Episode 01.mp4</span>
+          </div>
+          <div class="line">
+            <span class="label">Title</span>
+            <span>Motivational Story · The Royal Accident (Ep. 01)</span>
+          </div>
+          <div class="line">
+            <span class="label">Description</span>
+            <span>Auto-generated by Cre8 Studio · user-editable</span>
+          </div>
+          <div class="line">
+            <span class="label">Visibility</span>
+            <span>Public · Scheduled for 09:00 (creator can change)</span>
+          </div>
+
+          <div class="tag-row">
+            <span class="tag">#motivation</span>
+            <span class="tag">#shorts</span>
+            <span class="tag">#cre8studio</span>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn">
+              <span class="dot"></span>
+              Upload to YouTube (videos.insert)
+            </button>
+            <button class="btn-secondary">
+              Save draft only
+            </button>
+          </div>
+
+          <p class="explain">
+            When the user clicks <strong>Upload to YouTube</strong>, our backend calls
+            <span class="monospace">youtube.videos.insert</span> using the authenticated user’s
+            access token. The upload is performed <strong>only</strong> to that user’s
+            own channel; we do not upload to any channel we control.
+          </p>
+        </div>
+
+        <ul>
+          <li>All uploads originate from video files already stored in Cre8 Studio or provided by the creator.</li>
+          <li>Creators can cancel or reschedule posts before the upload call is made.</li>
+          <li>No Content ID, analytics, or advertising APIs are used in this workflow.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="step-label">Step 4 · Confirmation & logging</div>
+            <div class="card-title">
+              Upload result & audit log
+              <span
+                class="tooltip"
+                data-tooltip="For transparency we keep a basic internal log: which Cre8 Studio user triggered an upload, which YouTube video ID was returned, and the timestamp. We do not log viewer metrics, watch time, or other analytics.">
+                i
+              </span>
+            </div>
+            <div class="card-subtitle">
+              Minimal logging for support – no analytics or resale
+            </div>
+          </div>
+          <div class="pill">For screenshot: <strong>Upload success</strong></div>
+        </div>
+
+        <div class="pseudo-ui">
+          <div class="pseudo-header">
+            <div class="pseudo-title">Upload summary · Job #UT7FdYzIdZM</div>
+            <span class="status-chip">Success</span>
+          </div>
+          <div class="line">
+            <span class="label">YouTube video ID</span>
+            <span class="monospace">UT7FdYzIdZM</span>
+          </div>
+          <div class="line">
+            <span class="label">Triggered by</span>
+            <span>Cre8 user: test-user-1 (Sir BM)</span>
+          </div>
+          <div class="line">
+            <span class="label">Triggered at</span>
+            <span>2025-12-11 · 09:15 (UTC+3)</span>
+          </div>
+          <p class="explain">
+            This screen confirms that the upload was successfully accepted by the
+            YouTube Data API. From here, the creator can open YouTube Studio to
+            manage comments, visibility, or delete the video entirely.
+          </p>
+        </div>
+
+        <ul>
+          <li>Logs are stored only for operational support and troubleshooting.</li>
+          <li>We do not expose aggregated YouTube data to third parties or run a public reporting tool.</li>
+          <li>Creators retain full control and ownership of their channels and content.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- ROW 3 – DATA HANDLING & CONTROLS -->
+    <div class="grid">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="step-label">Data protection & retention</div>
+            <div class="card-title">
+              How Cre8 Studio handles YouTube data
+              <span
+                class="tooltip"
+                data-tooltip="We only store what is required to perform uploads and keep the service running (tokens, basic channel reference, job logs). We do not store comments, viewers, or any analytics from YouTube.">
+                i
+              </span>
+            </div>
+            <div class="card-subtitle">
+              Minimal data, encrypted tokens, no resale or secondary use
+            </div>
+          </div>
+          <div class="pill">For screenshot: <strong>Data handling</strong></div>
+        </div>
+
+        <ul>
+          <li>Access tokens and refresh tokens are stored server-side in an encrypted database with restricted access.</li>
+          <li>We store only:
+            <ul>
+              <li>Connected channel ID and display name for account linking.</li>
+              <li>Upload jobs with YouTube video IDs and timestamps.</li>
+              <li>User-supplied video metadata (titles, descriptions, tags).</li>
+            </ul>
+          </li>
+          <li>We <strong>do not</strong>:
+            <ul>
+              <li>Store or process YouTube Analytics or Reporting data.</li>
+              <li>Use YouTube data for ad targeting, resale, or market research.</li>
+              <li>Mix YouTube data with data from other platforms to build external profiles.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p class="explain">
+          Data retention is limited to what is necessary to support the creator’s account
+          and comply with our legal obligations. If a user disconnects YouTube, we stop
+          using their tokens and mark related jobs as inactive.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <div class="step-label">User controls & revocation</div>
+            <div class="card-title">
+              Disconnecting YouTube access
+              <span
+                class="tooltip"
+                data-tooltip="Creators can disconnect YouTube at any time from inside Cre8 Studio. They can also revoke our access from their Google Account page, which immediately invalidates our tokens.">
+                i
+              </span>
+            </div>
+            <div class="card-subtitle">
+              Creator can stop all API calls at any time
+            </div>
+          </div>
+          <div class="pill">For screenshot: <strong>Disconnect</strong></div>
+        </div>
+
+        <div class="pseudo-ui">
+          <div class="pseudo-header">
+            <div class="pseudo-title">Connected channel: Sir BM – Official</div>
+            <span class="status-chip">Active</span>
+          </div>
+          <div class="line">
+            <span class="label">Channel ID</span>
+            <span class="monospace">UCxxxxxxxxxxxxxxxxx</span>
+          </div>
+          <div class="btn-row">
+            <button class="btn-secondary">
+              Disconnect YouTube
+              <span
+                class="tooltip"
+                data-tooltip="This action deletes the stored tokens and stops all scheduled uploads for this channel. Existing videos on YouTube are unaffected and remain under the creator’s full control.">
+                i
+              </span>
+            </button>
+          </div>
+          <p class="explain">
+            When the creator clicks <strong>Disconnect YouTube</strong>, we delete the
+            stored tokens and cancel any future upload jobs for that channel. Google’s
+            own “Security → Third-party access” page also allows users to revoke our
+            access instantly.
+          </p>
+        </div>
+
+        <ul>
+          <li>Disconnecting is always available from within the Cre8 Studio UI.</li>
+          <li>We provide clear messaging that revocation stops all future uploads.</li>
+          <li>Users can re-connect later by repeating the Google OAuth flow.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- FOOTER WITH POLICY LINKS -->
+    <footer>
+      <div>
+        Cre8 Studio is part of <strong>BMS CREATIVE CONCEPT</strong>.  
+        This page is for YouTube API audit and documentation only.
+      </div>
+      <div class="links">
+        <a href="https://thecre8studio.com/">Home</a>
+        <a href="https://thecre8studio.com/privacy.html">Privacy Policy</a>
+        <a href="https://thecre8studio.com/terms.html">Terms of Service</a>
+        <a href="https://thecre8studio.com/policy.html">Platform Policy</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
