@@ -1,213 +1,557 @@
-<!-- ======================= privacy.html ======================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cre8 Studio – Privacy Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Privacy Policy for Cre8 Studio, explaining how we collect, use, and protect data when you connect YouTube, Facebook, Instagram, TikTok and other platforms." />
+
   <style>
+    :root {
+      --bg: #0f172a;
+      --bg-card: #0b1120;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-soft: #1f2937;
+      --danger: #f97373;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
-      padding: 2rem;
-      background: #f5f5f7;
-      color: #111827;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text-main);
       line-height: 1.6;
     }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-soft);
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--accent);
+      background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
+    }
+
+    .brand-title {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.98rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
     main {
       max-width: 960px;
       margin: 0 auto;
-      background: #ffffff;
-      padding: 2rem 2.5rem;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      padding: 2.5rem 1.25rem 3.5rem;
     }
-    h1, h2, h3 {
-      color: #111827;
+
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.96), rgba(15,23,42,0.98));
+      border-radius: 24px;
+      border: 1px solid var(--border-soft);
+      box-shadow:
+        0 22px 45px rgba(0,0,0,0.65),
+        0 0 0 1px rgba(148,163,184,0.10);
+      padding: 2.2rem 1.8rem 2.4rem;
     }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 2.8rem 3rem 3rem;
+      }
+    }
+
     h1 {
       font-size: 1.9rem;
-      margin-bottom: 0.75rem;
+      margin: 0 0 0.4rem;
     }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 0.75rem 0.9rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.25), transparent 55%);
+      border: 1px solid var(--accent-soft);
+      margin-bottom: 2rem;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
+    }
+
     h2 {
-      margin-top: 1.75rem;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
+      margin-top: 1.9rem;
+      margin-bottom: 0.4rem;
     }
+
     h3 {
-      margin-top: 1.1rem;
-      font-size: 1.05rem;
+      font-size: 0.98rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.2rem;
     }
+
     p {
-      margin: 0.4rem 0 0.8rem;
+      font-size: 0.95rem;
+      margin: 0.35rem 0 0.2rem;
     }
+
     ul {
-      padding-left: 1.2rem;
-      margin: 0.2rem 0 0.8rem;
+      margin: 0.35rem 0 0.6rem 1.1rem;
+      padding-left: 0.4rem;
+      font-size: 0.94rem;
     }
-    strong {
-      font-weight: 600;
+
+    li {
+      margin-bottom: 0.15rem;
     }
-    .meta {
-      color: #6b7280;
-      font-size: 0.9rem;
-      margin-bottom: 1.3rem;
+
+    .note {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.7rem;
+      margin-top: 0.6rem;
+    }
+
+    .warning {
+      color: var(--danger);
+      font-weight: 500;
+    }
+
+    footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--border-soft);
+      padding-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark">C8</div>
+        <div class="brand-title">Cre8 Studio</div>
+      </div>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/privacy.html" class="active">Privacy Policy</a>
+        <a href="/policy.html">Platform &amp; API Policy</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <h1>Privacy Policy – Cre8 Studio</h1>
-    <p class="meta">Last updated: December 2025</p>
+    <article class="card">
+      <header>
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">
+          This Privacy Policy explains how Cre8 Studio collects, uses, and protects information when
+          you use our service and connect your YouTube, Facebook, Instagram, TikTok and other
+          social accounts.
+        </p>
+        <div class="meta-bar">
+          <span class="meta-pill">
+            <span class="dot"></span>
+            <span>Effective date: 11 December 2025</span>
+          </span>
+          <span class="meta-pill">
+            <span>Operator: BMS Creative Concept (&ldquo;we&rdquo;, &ldquo;us&rdquo;)</span>
+          </span>
+        </div>
+      </header>
 
-    <p>
-      Cre8 Studio ("Cre8 Studio", "the Platform", "we", "our", or "us") provides automated video
-      creation, rebranding, and publishing services across multiple social platforms, including
-      <strong>YouTube</strong>, <strong>Facebook</strong>, <strong>Instagram</strong>, <strong>TikTok</strong>,
-      and others that may be added from time to time (collectively, "Connected Platforms").
-      This Privacy Policy explains how we collect, use, store, and protect information when you
-      use Cre8 Studio or connect your social accounts.
-    </p>
+      <section>
+        <h2>1. Who we are</h2>
+        <p>
+          Cre8 Studio is a video creation and automation platform operated by BMS Creative Concept.
+          When we say &ldquo;Service&rdquo; in this Policy, we mean the Cre8 Studio web and related
+          applications, including our integrations with YouTube, Facebook, Instagram, TikTok and any
+          other supported platforms.
+        </p>
+        <p>
+          We act as a &ldquo;controller&rdquo; for the data we collect directly from you through the
+          Service, and as a &ldquo;processor&rdquo; for certain actions we perform on your behalf on
+          third-party platforms.
+        </p>
+      </section>
 
-    <h2>1. Information We Collect</h2>
+      <section>
+        <h2>2. Information we collect</h2>
+        <h3>2.1 Information you provide directly</h3>
+        <ul>
+          <li>Account details such as name, email address, password or login credentials for Cre8 Studio.</li>
+          <li>Profile information (for example, brand name, logo, preferred niches or categories).</li>
+          <li>Content you upload, generate or schedule through the Service (videos, images, captions, titles, metadata, etc.).</li>
+          <li>Communication data when you contact us for support or respond to surveys.</li>
+          <li>Billing and subscription information processed via our payment partners (we do not store full card numbers).</li>
+        </ul>
 
-    <h3>a. Account and OAuth Authorization Data</h3>
-    <p>
-      When you connect your YouTube, Facebook/Instagram, TikTok, or other social accounts to Cre8 Studio,
-      we receive information through official OAuth flows, including:
-    </p>
-    <ul>
-      <li>Access tokens and refresh tokens issued by the Connected Platforms</li>
-      <li>Channel IDs, page IDs, user IDs, and basic profile/channel/page information</li>
-      <li>The specific permissions (scopes) you grant to Cre8 Studio</li>
-    </ul>
-    <p><strong>We never collect or store your passwords.</strong></p>
+        <h3>2.2 Information we receive from connected platforms</h3>
+        <p>
+          When you connect your YouTube channel or other social accounts, we may receive certain
+          data via their official APIs, subject to your permissions. This may include:
+        </p>
+        <ul>
+          <li>Basic account and channel identifiers (for example, channel ID, page ID, username, profile image, country/region).</li>
+          <li>Permissions / scopes granted (upload, manage videos, read basic analytics where applicable).</li>
+          <li>Access tokens and, where required, refresh tokens that allow us to perform authorised actions on your behalf.</li>
+          <li>Content-level information such as titles, descriptions, thumbnails, and status of videos you create or manage through Cre8 Studio.</li>
+          <li>Limited performance metrics (for example, views, likes, watch time) where enabled to display reports to you.</li>
+        </ul>
 
-    <h3>b. Content You Provide</h3>
-    <p>
-      We collect content and metadata that you choose to upload or manage through Cre8 Studio, such as:
-    </p>
-    <ul>
-      <li>Video files, audio files, and thumbnails</li>
-      <li>Titles, descriptions, tags, hashtags, and scheduled posting times</li>
-      <li>Branding overlays, templates, and configuration settings</li>
-    </ul>
+        <h3>2.3 Automatically collected information</h3>
+        <p>
+          We also collect limited technical information when you use the Service, such as:
+        </p>
+        <ul>
+          <li>Device and browser information, IP address, and approximate location (country/region).</li>
+          <li>Log data about how you use the Service (pages visited, actions performed, timestamps, error logs).</li>
+          <li>Cookie and similar identifiers used to keep you signed in and to secure your session.</li>
+        </ul>
+      </section>
 
-    <h3>c. Usage and Technical Data</h3>
-    <p>
-      We may collect limited technical and usage data, such as:
-    </p>
-    <ul>
-      <li>Log entries for publishing actions and automation jobs</li>
-      <li>IP address, browser type, device identifiers, and error diagnostics</li>
-      <li>Aggregate statistics about feature usage to improve service reliability</li>
-    </ul>
+      <section>
+        <h2>3. How we use your information</h2>
+        <p>We use the information described above for the following purposes:</p>
+        <ul>
+          <li>To create and manage your Cre8 Studio account.</li>
+          <li>To connect your YouTube channel, Facebook Page, Instagram, TikTok and other accounts that you choose to link.</li>
+          <li>To upload, schedule and manage videos or posts to your accounts, strictly according to the options you configure.</li>
+          <li>To generate captions, thumbnails, templates and other creative assets you request.</li>
+          <li>To show you performance summaries, dashboards and reports based on data returned by supported platforms.</li>
+          <li>To secure the Service, prevent abuse, troubleshoot issues and generate logs necessary for reliability.</li>
+          <li>To handle billing, subscription management and transactional communications.</li>
+          <li>To send important notices about updates, security or changes to this Policy or our Terms.</li>
+          <li>Where permitted, to send optional product tips or marketing messages, which you can opt out of at any time.</li>
+          <li>To comply with legal obligations and respond to lawful requests from regulators or platforms.</li>
+        </ul>
+        <p class="warning">
+          We do not sell your personal information or YouTube data and we do not use YouTube data
+          for advertising targeting or to build profiles for resale.
+        </p>
+      </section>
 
-    <h2>2. How We Use Your Information</h2>
-    <p>
-      Cre8 Studio uses the information we collect <strong>only</strong> for the purposes you authorize,
-      including:
-    </p>
-    <ul>
-      <li>Connecting and authenticating your accounts with Connected Platforms</li>
-      <li>Uploading and publishing videos to the channels, pages, or profiles you select</li>
-      <li>Running automations and schedules that you explicitly configure</li>
-      <li>Displaying connection status and basic channel/page information in your dashboard</li>
-      <li>Providing customer support and troubleshooting technical issues</li>
-    </ul>
-    <p>
-      We do <strong>not</strong> use YouTube Data or other platform data for advertising, resale,
-      data brokering, or unrelated analytics.
-    </p>
+      <section>
+        <h2>4. Use of YouTube API Services</h2>
+        <p>
+          Cre8 Studio uses YouTube API Services to help you publish and manage content on your own
+          YouTube channel. When you authorise our application via Google OAuth:
+        </p>
+        <ul>
+          <li>We access only the scopes you approve (for example, <code>youtube.upload</code> and <code>youtube.readonly</code>).</li>
+          <li>We use these scopes exclusively to upload and manage videos, and to display performance data back to you within Cre8 Studio.</li>
+          <li>We store access tokens and, where necessary, refresh tokens so that scheduled uploads and automations can run.</li>
+          <li>We do not share YouTube data with third parties except infrastructure providers who help us operate the Service (hosting, storage, logging) under strict confidentiality obligations.</li>
+        </ul>
+        <p>
+          Your use of YouTube through Cre8 Studio is also governed by the
+          <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service</a>,
+          the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a> and
+          the <a href="https://developers.google.com/youtube/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>.
+        </p>
+        <p>
+          You may revoke Cre8 Studio&rsquo;s access to your Google Account at any time via your
+          Google security settings at
+          <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">
+            https://myaccount.google.com/permissions
+          </a>.
+          Once access is revoked, we will cease making requests to the YouTube API on your behalf
+          and will delete or anonymise the related tokens from our systems within a reasonable
+          period (normally within 30 days, subject to backup cycles).
+        </p>
+      </section>
 
-    <h2>3. How We Share Information</h2>
-    <p>
-      We do <strong>not</strong> sell, rent, or trade your personal information or YouTube Data.
-      We only share data in the following limited circumstances:
-    </p>
-    <ul>
-      <li>
-        With Connected Platforms, strictly as required to perform actions you request, such as
-        publishing a video or updating metadata.
-      </li>
-      <li>
-        With payment processors (for example, card processors or online payment gateways) to process
-        your subscription fees or other authorized payments.
-      </li>
-      <li>
-        When required by law, regulation, or legal process, and only to the extent legally necessary.
-      </li>
-    </ul>
+      <section>
+        <h2>5. Other platforms (Facebook, Instagram, TikTok, etc.)</h2>
+        <p>
+          When you connect other platforms, such as Facebook Pages, Instagram Business accounts or
+          TikTok, we use their official APIs in a similar way:
+        </p>
+        <ul>
+          <li>We request only the permissions required to publish content and read the basic data needed for dashboards.</li>
+          <li>We do not request access to your personal messages or unrelated data.</li>
+          <li>You can disconnect our app from those platforms at any time using their respective settings pages.</li>
+        </ul>
+        <p>
+          Your use of those services is governed by their own terms and privacy policies, which we
+          encourage you to review.
+        </p>
+      </section>
 
-    <h2>4. User Control, Revocation, and Data Deletion</h2>
-    <p>
-      You can disconnect any Connected Platform from Cre8 Studio at any time from within your
-      account settings. When you disconnect:
-    </p>
-    <ul>
-      <li>OAuth tokens and related credentials are deleted from our systems.</li>
-      <li>Cre8 Studio immediately loses access to your accounts on that platform.</li>
-      <li>
-        Automated posting, scheduling, and content management for that platform are disabled until
-        you reconnect.
-      </li>
-    </ul>
-    <p>
-      If you permanently delete your Cre8 Studio account or submit a valid data deletion request,
-      we will remove your stored tokens and associated profile data, subject to any legal retention
-      obligations.
-    </p>
+      <section>
+        <h2>6. Legal bases for processing</h2>
+        <p>
+          Depending on your location, we rely on one or more of the following legal bases to process
+          your information:
+        </p>
+        <ul>
+          <li><strong>Contract:</strong> to deliver the Service you sign up for and perform our obligations under our Terms of Use.</li>
+          <li><strong>Legitimate interests:</strong> to maintain and improve the Service, protect security, prevent misuse, and understand how features are used.</li>
+          <li><strong>Consent:</strong> for certain optional data uses (such as marketing emails) and for connecting external platforms like YouTube.</li>
+          <li><strong>Legal obligation:</strong> to comply with applicable laws, tax rules, accounting, and regulatory requirements.</li>
+        </ul>
+      </section>
 
-    <h2>5. Data Security</h2>
-    <p>
-      We apply reasonable administrative, technical, and organizational safeguards designed to
-      protect your information, including encrypted storage of tokens where applicable and access
-      controls limited to essential personnel and systems. However, no system can be guaranteed to be
-      100% secure.
-    </p>
+      <section>
+        <h2>7. How we share information</h2>
+        <p>
+          We only share personal information in the ways described in this Policy:
+        </p>
+        <ul>
+          <li>
+            <strong>Service providers:</strong> companies that host our infrastructure, store files,
+            send emails, process payments, provide logging, analytics or customer support tools.
+            They may only use your data to provide services to us and must protect it appropriately.
+          </li>
+          <li>
+            <strong>Platform providers:</strong> YouTube/Google, Meta (Facebook &amp; Instagram),
+            TikTok and other platforms we integrate with will receive data when we act on your behalf
+            through their APIs, as described above.
+          </li>
+          <li>
+            <strong>Business transfers:</strong> if we are involved in a merger, acquisition or
+            sale of assets, your information may be transferred as part of that transaction, subject
+            to confidentiality obligations.
+          </li>
+          <li>
+            <strong>Legal and safety:</strong> where we reasonably believe disclosure is necessary
+            to comply with the law, enforce our Terms, protect our rights or the rights of others,
+            or respond to lawful requests from authorities or platform partners.
+          </li>
+        </ul>
+        <p class="warning">
+          We do not sell personal information or YouTube data, and we do not allow third parties to
+          use YouTube data for their own marketing or profiling purposes.
+        </p>
+      </section>
 
-    <h2>6. Data Retention</h2>
-    <p>
-      We retain information only for as long as it is needed to provide Cre8 Studio services,
-      fulfill the purposes described in this Policy, or comply with legal obligations. OAuth tokens
-      and related authorization data are kept only while your account remains connected.
-    </p>
+      <section>
+        <h2>8. Data retention</h2>
+        <p>
+          We keep information only for as long as necessary for the purposes outlined in this Policy
+          and to comply with legal obligations. In general:
+        </p>
+        <ul>
+          <li>Account data is retained while your account is active. If you close your account, we will delete or anonymise your data within a reasonable period, except where we must retain certain records for legal or accounting reasons.</li>
+          <li>Access tokens and refresh tokens for connected platforms are retained only while the connection remains active or until you revoke access.</li>
+          <li>Operational logs are typically retained for up to 12–18 months to help with security and troubleshooting.</li>
+          <li>Backups may temporarily retain deleted data for an additional limited period, after which it is overwritten in the normal backup rotation.</li>
+        </ul>
+      </section>
 
-    <h2>7. Compliance with Platform Policies</h2>
-    <p>
-      Cre8 Studio is designed to comply with:
-    </p>
-    <ul>
-      <li>YouTube API Services Terms of Service and Google Privacy Policy</li>
-      <li>Meta (Facebook and Instagram) Platform Terms and Developer Policies</li>
-      <li>TikTok Developer Terms and any related platform policies</li>
-    </ul>
-    <p>
-      We access and use data from these platforms only within the scope of permissions granted by the
-      user and only for the functions described in this Policy and in our Terms of Service.
-    </p>
+      <section>
+        <h2>9. Security</h2>
+        <p>
+          We use reasonable technical and organisational measures to protect your information, such
+          as encryption in transit (HTTPS), access controls, and principle-of-least-privilege for
+          staff and systems that handle sensitive data.
+        </p>
+        <p>
+          However, no system can be guaranteed 100% secure. You are responsible for maintaining the
+          confidentiality of your account credentials and for choosing strong, unique passwords.
+        </p>
+      </section>
 
-    <h2>8. Children’s Privacy</h2>
-    <p>
-      Cre8 Studio is not directed to children under 13, and we do not knowingly collect personal
-      information from children under 13. If you believe we have unintentionally collected such
-      information, please contact us so that we can take appropriate action.
-    </p>
+      <section>
+        <h2>10. International data transfers</h2>
+        <p>
+          Our infrastructure or that of our service providers may be located in different countries.
+          This means your information may be transferred to, stored in, or processed in a country
+          other than your own.
+        </p>
+        <p>
+          Where required by law, we implement appropriate safeguards (such as contractual clauses)
+          to protect personal data when it is transferred internationally.
+        </p>
+      </section>
 
-    <h2>9. Changes to This Policy</h2>
-    <p>
-      We may update this Privacy Policy from time to time. When we do, we will revise the
-      "Last updated" date at the top of this page. Material changes may also be communicated through
-      in-app notifications or email.
-    </p>
+      <section>
+        <h2>11. Your rights and choices</h2>
+        <p>Depending on your location, you may have certain rights over your personal data, such as:</p>
+        <ul>
+          <li>Accessing the information we hold about you.</li>
+          <li>Requesting correction of inaccurate or incomplete information.</li>
+          <li>Requesting deletion of your data, subject to legal retention requirements.</li>
+          <li>Objecting to or restricting certain types of processing.</li>
+          <li>Withdrawing consent where processing is based on consent (for example, marketing emails or connected APIs).</li>
+        </ul>
+        <p>
+          To exercise any of these rights, or to request deletion of your account, please contact us
+          at <strong>sirbmsuper201@gmail.com</strong>. We may need to verify your identity before
+          responding.
+        </p>
+        <p>
+          You can also control certain choices directly:
+        </p>
+        <ul>
+          <li>Unsubscribe from marketing emails using the link in those messages.</li>
+          <li>Disconnect platforms such as YouTube via their own security settings pages.</li>
+        </ul>
+      </section>
 
-    <h2>10. Contact Us</h2>
-    <p>
-      If you have questions or requests regarding this Privacy Policy or our data practices, you can
-      contact us at:
-    </p>
-    <p>
-      <strong>Email:</strong> sirbmsuper201@gmail.com
-    </p>
+      <section>
+        <h2>12. Cookies and similar technologies</h2>
+        <p>
+          Cre8 Studio uses cookies and similar technologies primarily for:
+        </p>
+        <ul>
+          <li>Authentication and keeping you signed in.</li>
+          <li>Security (for example, to detect suspicious activity).</li>
+          <li>Basic analytics to understand feature usage and improve the Service.</li>
+        </ul>
+        <p>
+          We do not currently use third-party advertising cookies or behavioural ad tracking on the
+          Service. Your browser settings may allow you to block or delete cookies, but some features
+          may not work correctly if you do.
+        </p>
+      </section>
+
+      <section>
+        <h2>13. Children&rsquo;s privacy</h2>
+        <p>
+          The Service is not directed to children under the age of 16 (or the minimum age required
+          in your jurisdiction), and we do not knowingly collect personal data from children in this
+          age group. If you believe a child has provided us with personal information, please
+          contact us so we can take appropriate action.
+        </p>
+      </section>
+
+      <section>
+        <h2>14. Changes to this Privacy Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time to reflect changes in our practices,
+          technologies, or legal requirements.
+        </p>
+        <p>
+          When we make material changes, we will update the &ldquo;Effective date&rdquo; at the top
+          of this page and, where appropriate, provide additional notice (for example, in-app or by
+          email). Your continued use of the Service after the updated Policy takes effect
+          constitutes acceptance of the changes.
+        </p>
+      </section>
+
+      <section>
+        <h2>15. Contact us</h2>
+        <p>
+          If you have any questions about this Privacy Policy or how we handle your information,
+          you can contact us at:
+        </p>
+        <p><strong>Email:</strong> sirbmsuper201@gmail.com</p>
+      </section>
+    </article>
   </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>Last updated: 11 December 2025</div>
+      <div class="footer-links">
+        <a href="/terms.html">Terms of Use</a>
+        <span>·</span>
+        <a href="/privacy.html">Privacy Policy</a>
+        <span>·</span>
+        <a href="/policy.html">Platform &amp; API Use Policy</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
