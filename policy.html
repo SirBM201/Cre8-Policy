@@ -3,136 +3,175 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Platform Policy – Cre8 Studio Posting Engine</title>
+  <title>Cre8 Studio – Platform & API Use Policy</title>
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f5f5f7;
+      color: #111827;
       line-height: 1.6;
-      margin: 40px auto;
-      max-width: 800px;
-      color: #111;
     }
-    h1, h2, h3 { font-weight: 600; }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2rem 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    h1, h2, h3 {
+      color: #111827;
+    }
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      margin-top: 1.75rem;
+      font-size: 1.3rem;
+    }
+    h3 {
+      margin-top: 1.1rem;
+      font-size: 1.05rem;
+    }
+    p {
+      margin: 0.4rem 0 0.8rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.2rem 0 0.8rem;
+    }
+    strong {
+      font-weight: 600;
+    }
+    .meta {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 1.3rem;
+    }
   </style>
 </head>
 <body>
+  <main>
+    <h1>Cre8 Studio – Platform & API Use Policy</h1>
+    <p class="meta">Last updated: December 2025</p>
 
-<h1>Platform Policy – Cre8 Studio Posting Engine</h1>
-<p><strong>Last updated:</strong> 28 November 2025</p>
+    <p>
+      This Platform & API Use Policy ("Policy") describes how Cre8 Studio interacts with third-party
+      platforms such as YouTube, Facebook, Instagram, TikTok, and others, and sets out rules for how
+      creators may use these integrations through Cre8 Studio.
+    </p>
 
-<p>
-This Policy outlines compliance, rights, data use, copyright protections, 
-and acceptable usage rules for the Cre8 Studio Posting Engine (“the Service”), 
-operated by <strong>BMS Creative Concept</strong> (“we”, “us”, or “our”).
-</p>
+    <h2>1. Purpose of Integrations</h2>
+    <p>
+      Cre8 Studio integrations are designed solely to help creators:
+    </p>
+    <ul>
+      <li>Create, rebrand, and prepare video content;</li>
+      <li>Upload and publish content to their own channels, pages, or profiles;</li>
+      <li>Schedule posts and automate repetitive publishing workflows;</li>
+      <li>Manage metadata such as titles, descriptions, tags, and thumbnails.</li>
+    </ul>
 
-<h2>1. Purpose of the Service</h2>
-<p>
-Cre8 Studio Posting Engine provides a secure posting assistant for creators who
-wish to authorize automatic publishing of their own media content to TikTok and other
-platforms using official API integrations. We only perform actions permitted 
-under the TikTok Developer Terms, including uploading content, scheduling posts, 
-and retrieving basic posting information.
-</p>
+    <h2>2. Use of YouTube API Services</h2>
+    <p>
+      When you connect a YouTube channel, Cre8 Studio uses YouTube API Services to:
+    </p>
+    <ul>
+      <li>Authenticate your account via OAuth 2.0;</li>
+      <li>Upload videos and set or update titles, descriptions, tags, and privacy status;</li>
+      <li>Retrieve basic channel information required to display connection status.</li>
+    </ul>
+    <p>
+      Cre8 Studio does not use YouTube Data for analytics, ad targeting, resale, or any secondary use
+      outside of the publishing workflow you create. Your use of Cre8 Studio with YouTube is subject to
+      the <strong>YouTube Terms of Service</strong> and the <strong>YouTube API Services Terms of
+      Service</strong>, as well as the <strong>Google Privacy Policy</strong>.
+    </p>
 
-<h2>2. Intellectual Property & Copyright Content</h2>
-<p>
-Users must own the legal rights to upload, post, or distribute any content submitted
-to the Service. The Service does not grant ownership over any uploaded media, captions,
-thumbnails, or user-generated material. All submitted content remains the property 
-of the user.
-</p>
-<p>
-We do not claim, resell, or license user content, nor do we perform automated actions 
-outside authorized API permissions.
-</p>
+    <h2>3. Use of Meta (Facebook & Instagram) APIs</h2>
+    <p>
+      When you connect Facebook pages or Instagram business accounts, Cre8 Studio uses Meta APIs to:
+    </p>
+    <ul>
+      <li>Authenticate you via Meta’s OAuth flow;</li>
+      <li>Upload reels, videos, and associated metadata to the pages/accounts you select;</li>
+      <li>Read back limited status information (for example, whether a post was successfully created).</li>
+    </ul>
+    <p>
+      Your use of these features must comply with the <strong>Meta Platform Terms</strong> and
+      <strong>Developer Policies</strong>. Cre8 Studio does not share Meta data with unrelated third
+      parties.
+    </p>
 
-<h2>3. API Compliance & Authorized Actions Only</h2>
-<p>
-The Service acts only upon explicit user authorization and performs permitted actions 
-such as:
-</p>
-<ul>
-  <li>Posting user content through official TikTok API endpoints</li>
-  <li>Retrieving post-status responses allowed by the API</li>
-  <li>Handling access tokens for session authentication</li>
-</ul>
+    <h2>4. Use of TikTok and Other Platforms</h2>
+    <p>
+      For TikTok and other integrated platforms, Cre8 Studio uses only the official APIs and OAuth
+      flows provided by each platform. Data is accessed and used solely to:
+    </p>
+    <ul>
+      <li>Authenticate your account;</li>
+      <li>Upload videos/shorts and set metadata;</li>
+      <li>Perform other actions that you explicitly initiate or schedule.</li>
+    </ul>
+    <p>
+      You must comply with each platform’s terms of service and community guidelines when publishing
+      content through Cre8 Studio.
+    </p>
 
-<p>
-The Service does not:
-</p>
-<ul>
-  <li>Collect unauthorized TikTok user data</li>
-  <li>Scrape TikTok</li>
-  <li>Bypass TikTok security or permissions</li>
-  <li>Modify, distort, or intercept TikTok internal data</li>
-</ul>
+    <h2>5. Prohibited Uses</h2>
+    <p>You may not use Cre8 Studio or its integrations to:</p>
+    <ul>
+      <li>Collect or attempt to collect data about other users without their consent;</li>
+      <li>Bypass or interfere with any platform’s security, rate limits, or access controls;</li>
+      <li>Manipulate metrics (views, likes, followers) in ways that violate platform rules;</li>
+      <li>Engage in spam, harassment, misinformation, or illegal activities;</li>
+      <li>
+        Build a competing data set or analytics product based primarily on YouTube Data or other
+        platform data obtained through Cre8 Studio.
+      </li>
+    </ul>
 
-<h2>4. Data Use & Security</h2>
-<p>
-Any API tokens, identifiers, or posting credentials are handled only to perform 
-Service functions requested by the user. Such credentials are not shared, resold, or used to access accounts
-outside the user’s instruction.
-</p>
+    <h2>6. Data Storage and Retention</h2>
+    <p>
+      Cre8 Studio stores OAuth tokens and minimal profile/channel information only as long as needed to
+      provide publishing and automation services. Tokens are deleted when you disconnect an account or
+      when they expire and are not renewed.
+    </p>
 
-<p>
-We use HTTPS and standard GitHub Pages hosting for policy file access. No external 
-data transfer, third-party profiling, advertisement networks, or personal data sale 
-is performed.
-</p>
+    <h2>7. User Control and Revocation</h2>
+    <p>
+      You can revoke Cre8 Studio’s access to any platform at any time by:
+    </p>
+    <ul>
+      <li>Disconnecting the account from within the Cre8 Studio dashboard; and/or</li>
+      <li>Using the platform’s own security page (for example, Google security settings for YouTube).</li>
+    </ul>
+    <p>
+      Once revoked, Cre8 Studio can no longer call the APIs or act on your behalf for that platform.
+    </p>
 
-<p>
-For privacy details, see our:
-<br>
-<a href="/privacy.html">Privacy Policy</a>
-</p>
+    <h2>8. Reporting Abuse</h2>
+    <p>
+      If you believe a Cre8 Studio user is abusing integrations or violating this Policy, please
+      contact us with details so we can investigate and take appropriate action, which may include
+      suspension or termination of access.
+    </p>
 
-<h2>5. User Responsibilities</h2>
-<p>
-Users must:
-</p>
-<ul>
-  <li>Upload only content they own or are licensed to share</li>
-  <li>Respect TikTok community rules and copyright laws</li>
-  <li>Ensure their posts do not violate policies, minors protection, or regional law</li>
-</ul>
+    <h2>9. Changes to This Policy</h2>
+    <p>
+      We may update this Platform & API Use Policy from time to time to reflect changes in our
+      integrations or in third-party platform requirements. When we do, we will update the "Last
+      updated" date at the top of this page.
+    </p>
 
-<h2>6. Content Moderation</h2>
-<p>
-We do not monitor, edit, or approve videos. All content posted is entirely controlled 
-by the user. The Service does not endorse or accept liability for illegal or abusive content.
-</p>
-
-<h2>7. DMCA & Rights Removal</h2>
-<p>
-Any copyright complaint, takedown request, or legal concern can be sent to:
-</p>
-<p><strong>Email:</strong> bms.concept@hotmail.com</p>
-
-<p>
-Upon verified request, we may remove offending content from the system or disable 
-automated posting for that user.
-</p>
-
-<h2>8. No Guarantee of Monetization</h2>
-<p>
-The Service does not guarantee TikTok approval, monetization eligibility, review acceptance,
-or platform-specific earnings. All monetization decisions remain solely with TikTok.
-</p>
-
-<h2>9. Updates to This Policy</h2>
-<p>
-We may update this document to remain compliant with TikTok policies or technology changes. 
-Users should review it periodically.
-</p>
-
-<p>
-For further legal terms, refer also to our:
-<br>
-<a href="/privacy.html">Privacy Policy</a> |
-<a href="/terms.html">Terms of Use</a> |
-<a href="/policy.html">Platform Policy</a>
-</p>
-
+    <h2>10. Contact</h2>
+    <p>
+      For questions about this Policy or our platform integrations, please contact:
+    </p>
+    <p><strong>Email:</strong> sirbmsuper201@gmail.com</p>
+  </main>
 </body>
 </html>
